@@ -1,0 +1,16 @@
+mod TEST-PROTOCOL is
+  protecting NARROWING .
+  protecting FT-CHANNEL .
+endm
+
+reduce in TEST-PROTOCOL :
+        narrowing(upModule('FT-CHANNEL, false),
+              --- INITIAL TERM
+              upTerm(
+                [IL1:IntegerList, I1:Integer] {1,2} {3,4} [IL2:IntegerList, I2:Integer]
+              ),  
+              =>*,
+              upTerm(
+                C2:Channel
+              ),
+              smt canonical, none, empty, 'true.Boolean, '@, 2, unbounded) .

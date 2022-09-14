@@ -1,0 +1,16 @@
+mod TEST-PROTOCOL is
+  protecting NARROWING .
+  protecting DAM-CONTROLLER .
+endm
+
+reduce in TEST-PROTOCOL :
+        narrowing(upModule('DAM-CONTROLLER, false),
+              --- INITIAL TERM
+              upTerm(
+                { [s1,close] [s2,close] [s3,close] ; Vol1:Real ; 1/1 ; true }
+              ),  
+              =>*,
+              upTerm(
+                { [s1,open2] [s2,open2] [s3,close] ; Vol2:Real ; Ti:Real ; true }
+              ),
+              smt standard, none, empty, 'true.Boolean, '@, 8, unbounded) .

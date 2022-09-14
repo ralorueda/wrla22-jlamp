@@ -1,0 +1,16 @@
+mod TEST-PROTOCOL is
+  protecting NARROWING .
+  protecting BANK-ACCOUNT .
+endm
+
+reduce in TEST-PROTOCOL :
+        narrowing(upModule('BANK-ACCOUNT, false),
+              --- INITIAL TERM
+              upTerm(
+                < bal: X:Real pend: Y:Real overdraft: B:Bool > # M:MsgConf
+              ),  
+              =>*,
+              upTerm(
+                < bal: X':Real pend: Y':Real overdraft: B':Bool > # M':MsgConf
+              ),
+               smt standard, none, empty, 'true.Boolean, '@, 3, unbounded) .
