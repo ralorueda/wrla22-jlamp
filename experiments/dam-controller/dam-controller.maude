@@ -1,37 +1,22 @@
 --- Just a simple nondeterministic dam controller
 
 mod DAM-CONTROLLER is
-  --- Rationals are needed to model basin water volume and 
-  --- its related parameters (e.g. inflow, outflow)
   protecting BOOL .
   protecting META-LEVEL .
   protecting REAL-INTEGER .
   
   sorts SpillwayId Aperture Spillway Spillways DamState TimeStamp .
   subsort Spillway < Spillways .
-  subsort Real < TimeStamp .  --- we consider a Discrete time domain modeled by the set of natural numbers.
+  subsort Real < TimeStamp .
   sort State .
   
-  --- We assume our dam is provided with three spillways called s1, s2 and s3 
-  --- (albeit this code can work with an arbitrary number of spillways provided their IDs are declared below)
   ops s1 s2 s3 : -> SpillwayId [ctor] .
-  
-  --- We consider 4 kinds of spillway openings of increasing discharge capacity
   ops close open1 open2 open3 : -> Aperture [ctor] .
-  
-  --- A spillway is a pair (spillwayId,aperture).
   op `[_`,_`] : SpillwayId Aperture -> Spillway [ctor] .
-  
-  --- We consider a multiset of spillways with identity empty (that is, empty represents an empty multiset of spillways)
   op empty : -> Spillways [ctor] . 
   op __ : Spillways Spillways -> Spillways [ctor assoc comm id: empty] .
-  
-  --- This operator checks whether a given time stamp falls in a given time interval 
-  --- op _ in[_`,_`] : TimeStamp TimeStamp TimeStamp -> Bool .
-  
+
   vars T T1 T2 : TimeStamp .
-  
-  --- eq T in[T1,T2] = T >= T1 and T <= T2 .
   
   --- A term of sort State is a triple  [spillways, volume, timestamp, ApertureCommand?] where spillways is a multiset 
   --- of spillways, volume is the basin volume at the time instant timetamp, and ApertureCommand? 
@@ -65,30 +50,20 @@ mod DAM-CONTROLLER is
   
   rl [nocmd] : { SC ; V ; T ; true } => { SC ; V ; T ; false } [narrowing] . 
   
-  --- Constant operator deltaT defines the time interval between two aperture commands.
-  --- (Note: in "A Practical use of model checking for synthesis: generating a dam controller for flood management", this value is called d_cmd.)
-  
   op deltaT : -> TimeStamp .
-  eq deltaT = 5/1 [variant] .  --- Assumption: deltaT is set to 5 min.
-  
-  --- We assume that the environmental inflow has a constant rate of 50m^3/s, that is, 3000 m^3/min.
-  
+  eq deltaT = 5/1 [variant] .
+
   op inflow : -> Real . 
   eq inflow = 2000/1 [variant] .
-  
-  --- Spillway outflow depends on its opening position (aperture).
-  
+    
   op aperture : Aperture -> Real .
   
   eq aperture(close) = 0/1 [variant] .
-  --- eq outflow(open1) = C * L * (sqrt(h1^3) -sqrt(h2^3)) .   --- Assumption: outflow constant rate 200 m3/min   (too simplistic...)
   eq aperture(open1) = 200/1 [variant] .
   
-  eq aperture(open2) = 400/1 [variant] .   --- Assumption: outflow constant rate 400 m3/min   (too simplistic...)
-  eq aperture(open3) = 1200/1 [variant] .   --- Assumption: outflow constang rate 800 m3/min   (too simplistic...)
-  
-  --- Spillway outflow computation can be lifted to outflow of multisets of spillways. 
-  
+  eq aperture(open2) = 400/1 [variant] .
+  eq aperture(open3) = 1200/1 [variant] .
+    
   var O : Aperture .  
   
   op outflow : Spillways -> Real .

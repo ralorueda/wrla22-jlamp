@@ -1,0 +1,455 @@
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.2.1 built: Feb 21 2022 18:21:17
+	     Copyright 1997-2022 SRI International
+		   Mon Oct  3 20:44:17 2022
+==========================================
+reduce in TEST-PROTOCOL : narrowing(upModule('BRANDS-CHAUM, false), upTerm({[
+    nilEe,-(CommitB:NTMsg
+ @ b : t1:Real -> i : t2:Real),{t2:Real === t1:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+(CommitB:NTMsg
+ @ i : t2:Real -> a : t3:Real),-(NA:Nonce
+ @ a : t3:Real -> i : t4:Real),{t4:Real === t3:Real + dai:Real and dai:Real > (
+    0/1).Real},+(NA:Nonce
+ @ i : t4:Real -> b : t5:Real),-((NA':Nonce * NB':Nonce)
+ @ b : t5:Real -> i : t6:Real),{t6:Real === t5:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+((NA':Nonce * NB':Nonce)
+ @ i : t6:Real -> a : t7:Real) | nileE] & [nilEe,+(commit(n(b, rb1), s(b, rb2))
+ @ b : t1:Real -> i : t2:Real),-(NA:Nonce
+ @ i : t4:Real -> b : t5:Real),{t5:Real === t4:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+((NA:Nonce * n(b, rb1))
+ @ b : t5:Real -> i : t6:Real) | nileE] & [nilEe,-(CommitB:NTMsg
+ @ i : t2:Real -> a : t3:Real),{t3:Real === t2:Real + dai:Real and dai:Real > (
+    0/1).Real},+(n(a, ra1)
+ @ a : t3:Real -> i : t4:Real),-((NB:Nonce * n(a, ra1))
+ @ i : t6:Real -> a : t7:Real),{t6:Real >= t3:Real and t7:Real === t6:Real +
+    dai:Real and dai:Real > (0/1).Real},{t7:Real - t3:Real <= (2/1).Real *
+    d:Real and d:Real > (0/1).Real} | nileE]{inI(commit(n(b, rb1), s(b, rb2))
+ @ b : t1:Real -> i : t2:Real),inI(commit(n(b, rb1), s(b, rb2))
+ @ i : t2:Real -> a : t3:Real),inI(n(a, ra1)
+ @ a : t3:Real -> i : t4:Real),inI(n(a, ra1)
+ @ i : t4:Real -> b : t5:Real),inI((n(a, ra1) * n(b, rb1))
+ @ b : t5:Real -> i : t6:Real),inI((n(a, ra1) * n(b, rb1))
+ @ i : t6:Real -> a : t7:Real)}}), =>*, upTerm({[nilEe | -(CommitB:NTMsg
+ @ b : t1:Real -> i : t2:Real),{t2:Real === t1:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+(CommitB:NTMsg
+ @ i : t2:Real -> a : t3:Real),-(NA:Nonce
+ @ a : t3:Real -> i : t4:Real),{t4:Real === t3:Real + dai:Real and dai:Real > (
+    0/1).Real},+(NA:Nonce
+ @ i : t4:Real -> b : t5:Real),-((NA':Nonce * NB':Nonce)
+ @ b : t5:Real -> i : t6:Real),{t6:Real === t5:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+((NA':Nonce * NB':Nonce)
+ @ i : t6:Real -> a : t7:Real),nileE] & [nilEe | +(commit(n(b, rb1), s(b, rb2))
+ @ b : t1:Real -> i : t2:Real),-(NA:Nonce
+ @ i : t4:Real -> b : t5:Real),{t5:Real === t4:Real + dbi:Real and dbi:Real > (
+    0/1).Real},+((NA:Nonce * n(b, rb1))
+ @ b : t5:Real -> i : t6:Real),nileE] & [nilEe | -(CommitB:NTMsg
+ @ i : t2:Real -> a : t3:Real),{t3:Real === t2:Real + dai:Real and dai:Real > (
+    0/1).Real},+(n(a, ra1)
+ @ a : t3:Real -> i : t4:Real),-((NB:Nonce * n(a, ra1))
+ @ i : t6:Real -> a : t7:Real),{t6:Real >= t3:Real and t7:Real === t6:Real +
+    dai:Real and dai:Real > (0/1).Real},{t7:Real - t3:Real <= (2/1).Real *
+    d:Real and d:Real > (0/1).Real},nileE]{nI(commit(n(b, rb1), s(b, rb2))
+ @ b : t1:Real -> i : t2:Real),nI(commit(n(b, rb1), s(b, rb2))
+ @ i : t2:Real -> a : t3:Real),nI(n(a, ra1)
+ @ a : t3:Real -> i : t4:Real),nI(n(a, ra1)
+ @ i : t4:Real -> b : t5:Real),nI((n(a, ra1) * n(b, rb1))
+ @ b : t5:Real -> i : t6:Real),nI((n(a, ra1) * n(b, rb1))
+ @ i : t6:Real -> a : t7:Real)}}), canonical smt, none, empty, 'true.Boolean,
+    '@, unbounded, unbounded) .
+rewrites: 899758 in 8600ms cpu (8602ms real) (104623 rewrites/second)
+result SolutionList: {(1).NzNat,'`{_`{_`}`}['_&_['`[_|_`]['nilEe.SMsgList-Ee,
+    '_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],
+    '_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,'$995:Real]]]],'_`,_['-[
+    '_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_[
+    'b.Honest,'$1000:Real]]]],'_`,_['`{_`}['_and_['_===_['$1000:Real,'_+_[
+    '$998:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['_*_['n[
+    'a.Honest,'ra1.Fresh],'n['b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,
+    '$1000:Real],'_:_['i.Intruder,'$1001:Real]]]],'nileE.SMsgList-eE]]]]],
+    '`[_|_`]['nilEe.SMsgList-Ee,'_`,_['-['_@_['commit['n['b.Honest,'rb1.Fresh],
+    's['b.Honest,'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_[
+    'i.Intruder,'$995:Real]]]],'_`,_['`{_`}['_and_['_===_['$995:Real,'_+_[
+    '$994:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['commit[
+    'n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],'_->_['_:_['i.Intruder,
+    '$995:Real],'_:_['a.Honest,'$997:Real]]]],'_`,_['-['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['a.Honest,'$997:Real],'_:_['i.Intruder,
+    '$998:Real]]]],'_`,_['`{_`}['_and_['_===_['$998:Real,'_+_['$997:Real,
+    '$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_['+['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_['b.Honest,
+    '$1000:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'_`,_['`{_`}['_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,
+    'ra1.Fresh],'n['b.Honest,'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],
+    '_:_['a.Honest,'$1002:Real]]]],'nileE.SMsgList-eE]]]]]]]]]],'`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['-['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['`{_`}['_and_['_===_['$997:Real,'_+_['$995:Real,
+    '$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_['+['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['a.Honest,'$997:Real],'_:_['i.Intruder,
+    '$998:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'_`,_['`{_`}['_and_['_and_['_>=_['$1001:Real,'$997:Real],
+    '_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_['$999:Real,
+    '0/1.Real]]],'_`,_['`{_`}['_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_[
+    '2/1.Real,'$993:Real]],'_>_['$993:Real,'0/1.Real]]],
+    'nileE.SMsgList-eE]]]]]]]],'_`,_['nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'nI['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'nI['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_['b.Honest,
+    '$1000:Real]]]]]],
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '$993:Real ; 
+  'dai:Real <- '$999:Real ; 
+  'dbi:Real <- '$996:Real ; 
+  't1:Real <- '$994:Real ; 
+  't2:Real <- '$995:Real ; 
+  't3:Real <- '$997:Real ; 
+  't4:Real <- '$998:Real ; 
+  't5:Real <- '$1000:Real ; 
+  't6:Real <- '$1001:Real ; 
+  't7:Real <- '$1002:Real,
+  '$1000:Real <- '%4:Real ; 
+  '$1001:Real <- '%6:Real ; 
+  '$1002:Real <- '%9:Real ; 
+  '$993:Real <- '%10:Real ; 
+  '$994:Real <- '%1:Real ; 
+  '$995:Real <- '%2:Real ; 
+  '$996:Real <- '%5:Real ; 
+  '$997:Real <- '%7:Real ; 
+  '$998:Real <- '%3:Real ; 
+  '$999:Real <- '%8:Real ; 
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '%10:Real ; 
+  'dai:Real <- '%8:Real ; 
+  'dbi:Real <- '%5:Real ; 
+  't1:Real <- '%1:Real ; 
+  't2:Real <- '%2:Real ; 
+  't3:Real <- '%7:Real ; 
+  't4:Real <- '%3:Real ; 
+  't5:Real <- '%4:Real ; 
+  't6:Real <- '%6:Real ; 
+  't7:Real <- '%9:Real,'_and_['_and_['_and_['_and_['_and_['_and_['_and_[
+    'true.Boolean,'_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_['2/1.Real,
+    '$993:Real]],'_>_['$993:Real,'0/1.Real]]],'_and_['_and_['_>=_['$1001:Real,
+    '$997:Real],'_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_[
+    '$999:Real,'0/1.Real]]],'_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_['$1000:Real,'_+_[
+    '$998:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],
+    '_and_['_===_['$997:Real,'_+_['$995:Real,'$999:Real]],'_>_['$999:Real,
+    '0/1.Real]]],'_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_[
+    '$996:Real,'0/1.Real]]]} ; {(2).NzNat,'`{_`{_`}`}['_&_['`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_[
+    'i.Intruder,'$998:Real],'_:_['b.Honest,'$1000:Real]]]],'_`,_['`{_`}['_and_[
+    '_===_['$1000:Real,'_+_['$998:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nileE.SMsgList-eE]]]]],'`[_|_`]['nilEe.SMsgList-Ee,'_`,_[
+    '-['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],'_->_[
+    '_:_['b.Honest,'$994:Real],'_:_['i.Intruder,'$995:Real]]]],'_`,_['`{_`}[
+    '_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'_`,_['`{_`}['_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_[
+    '+['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_[
+    'b.Honest,'$1000:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'_`,_['`{_`}['_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,
+    'ra1.Fresh],'n['b.Honest,'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],
+    '_:_['a.Honest,'$1002:Real]]]],'nileE.SMsgList-eE]]]]]]]]]],'`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['-['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['`{_`}['_and_['_===_['$997:Real,'_+_['$995:Real,
+    '$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_['+['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['a.Honest,'$997:Real],'_:_['i.Intruder,
+    '$998:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'_`,_['`{_`}['_and_['_and_['_>=_['$1001:Real,'$997:Real],
+    '_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_['$999:Real,
+    '0/1.Real]]],'_`,_['`{_`}['_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_[
+    '2/1.Real,'$993:Real]],'_>_['$993:Real,'0/1.Real]]],
+    'nileE.SMsgList-eE]]]]]]]],'_`,_['nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'nI['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'nI['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_['b.Honest,
+    '$1000:Real]]]]]],
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '$993:Real ; 
+  'dai:Real <- '$999:Real ; 
+  'dbi:Real <- '$996:Real ; 
+  't1:Real <- '$994:Real ; 
+  't2:Real <- '$995:Real ; 
+  't3:Real <- '$997:Real ; 
+  't4:Real <- '$998:Real ; 
+  't5:Real <- '$1000:Real ; 
+  't6:Real <- '$1001:Real ; 
+  't7:Real <- '$1002:Real,
+  '$1000:Real <- '%4:Real ; 
+  '$1001:Real <- '%6:Real ; 
+  '$1002:Real <- '%9:Real ; 
+  '$993:Real <- '%10:Real ; 
+  '$994:Real <- '%1:Real ; 
+  '$995:Real <- '%2:Real ; 
+  '$996:Real <- '%5:Real ; 
+  '$997:Real <- '%7:Real ; 
+  '$998:Real <- '%3:Real ; 
+  '$999:Real <- '%8:Real ; 
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '%10:Real ; 
+  'dai:Real <- '%8:Real ; 
+  'dbi:Real <- '%5:Real ; 
+  't1:Real <- '%1:Real ; 
+  't2:Real <- '%2:Real ; 
+  't3:Real <- '%7:Real ; 
+  't4:Real <- '%3:Real ; 
+  't5:Real <- '%4:Real ; 
+  't6:Real <- '%6:Real ; 
+  't7:Real <- '%9:Real,'_and_['_and_['_and_['_and_['_and_['_and_['_and_[
+    'true.Boolean,'_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_['2/1.Real,
+    '$993:Real]],'_>_['$993:Real,'0/1.Real]]],'_and_['_and_['_>=_['$1001:Real,
+    '$997:Real],'_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_[
+    '$999:Real,'0/1.Real]]],'_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_['$1000:Real,'_+_[
+    '$998:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],
+    '_and_['_===_['$997:Real,'_+_['$995:Real,'$999:Real]],'_>_['$999:Real,
+    '0/1.Real]]],'_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_[
+    '$996:Real,'0/1.Real]]]} ; {(3).NzNat,'`{_`{_`}`}['_&_['`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_[
+    'i.Intruder,'$998:Real],'_:_['b.Honest,'$1000:Real]]]],'_`,_['`{_`}['_and_[
+    '_===_['$1000:Real,'_+_['$998:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nileE.SMsgList-eE]]]]],'`[_|_`]['nilEe.SMsgList-Ee,'_`,_[
+    '-['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],'_->_[
+    '_:_['b.Honest,'$994:Real],'_:_['i.Intruder,'$995:Real]]]],'_`,_['`{_`}[
+    '_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'_`,_['`{_`}['_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_[
+    '+['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_[
+    'b.Honest,'$1000:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'_`,_['`{_`}['_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,
+    'ra1.Fresh],'n['b.Honest,'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],
+    '_:_['a.Honest,'$1002:Real]]]],'nileE.SMsgList-eE]]]]]]]]]],'`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['-['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['`{_`}['_and_['_===_['$997:Real,'_+_['$995:Real,
+    '$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_['+['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['a.Honest,'$997:Real],'_:_['i.Intruder,
+    '$998:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'_`,_['`{_`}['_and_['_and_['_>=_['$1001:Real,'$997:Real],
+    '_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_['$999:Real,
+    '0/1.Real]]],'_`,_['`{_`}['_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_[
+    '2/1.Real,'$993:Real]],'_>_['$993:Real,'0/1.Real]]],
+    'nileE.SMsgList-eE]]]]]]]],'_`,_['nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'nI['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'nI['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_['b.Honest,
+    '$1000:Real]]]]]],
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '$993:Real ; 
+  'dai:Real <- '$999:Real ; 
+  'dbi:Real <- '$996:Real ; 
+  't1:Real <- '$994:Real ; 
+  't2:Real <- '$995:Real ; 
+  't3:Real <- '$997:Real ; 
+  't4:Real <- '$998:Real ; 
+  't5:Real <- '$1000:Real ; 
+  't6:Real <- '$1001:Real ; 
+  't7:Real <- '$1002:Real,
+  '$1000:Real <- '%4:Real ; 
+  '$1001:Real <- '%6:Real ; 
+  '$1002:Real <- '%9:Real ; 
+  '$993:Real <- '%10:Real ; 
+  '$994:Real <- '%1:Real ; 
+  '$995:Real <- '%2:Real ; 
+  '$996:Real <- '%5:Real ; 
+  '$997:Real <- '%7:Real ; 
+  '$998:Real <- '%3:Real ; 
+  '$999:Real <- '%8:Real ; 
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '%10:Real ; 
+  'dai:Real <- '%8:Real ; 
+  'dbi:Real <- '%5:Real ; 
+  't1:Real <- '%1:Real ; 
+  't2:Real <- '%2:Real ; 
+  't3:Real <- '%7:Real ; 
+  't4:Real <- '%3:Real ; 
+  't5:Real <- '%4:Real ; 
+  't6:Real <- '%6:Real ; 
+  't7:Real <- '%9:Real,'_and_['_and_['_and_['_and_['_and_['_and_['_and_[
+    'true.Boolean,'_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_['2/1.Real,
+    '$993:Real]],'_>_['$993:Real,'0/1.Real]]],'_and_['_and_['_>=_['$1001:Real,
+    '$997:Real],'_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_[
+    '$999:Real,'0/1.Real]]],'_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_['$1000:Real,'_+_[
+    '$998:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],
+    '_and_['_===_['$997:Real,'_+_['$995:Real,'$999:Real]],'_>_['$999:Real,
+    '0/1.Real]]],'_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_[
+    '$996:Real,'0/1.Real]]]} ; {(4).NzNat,'`{_`{_`}`}['_&_['`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_[
+    'i.Intruder,'$998:Real],'_:_['b.Honest,'$1000:Real]]]],'_`,_['`{_`}['_and_[
+    '_===_['$1000:Real,'_+_['$998:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nileE.SMsgList-eE]]]]],'`[_|_`]['nilEe.SMsgList-Ee,'_`,_[
+    '-['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],'_->_[
+    '_:_['b.Honest,'$994:Real],'_:_['i.Intruder,'$995:Real]]]],'_`,_['`{_`}[
+    '_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_['$996:Real,
+    '0/1.Real]]],'_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['-['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'_`,_['`{_`}['_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_[
+    '+['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_[
+    'b.Honest,'$1000:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'_`,_['`{_`}['_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_`,_['+['_@_['_*_['n['a.Honest,
+    'ra1.Fresh],'n['b.Honest,'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],
+    '_:_['a.Honest,'$1002:Real]]]],'nileE.SMsgList-eE]]]]]]]]]],'`[_|_`][
+    'nilEe.SMsgList-Ee,'_`,_['-['_@_['commit['n['b.Honest,'rb1.Fresh],'s[
+    'b.Honest,'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'_`,_['`{_`}['_and_['_===_['$997:Real,'_+_['$995:Real,
+    '$999:Real]],'_>_['$999:Real,'0/1.Real]]],'_`,_['+['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['a.Honest,'$997:Real],'_:_['i.Intruder,
+    '$998:Real]]]],'_`,_['-['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'_`,_['`{_`}['_and_['_and_['_>=_['$1001:Real,'$997:Real],
+    '_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_['$999:Real,
+    '0/1.Real]]],'_`,_['`{_`}['_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_[
+    '2/1.Real,'$993:Real]],'_>_['$993:Real,'0/1.Real]]],
+    'nileE.SMsgList-eE]]]]]]]],'_`,_['nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n[
+    'b.Honest,'rb1.Fresh]],'_->_['_:_['b.Honest,'$1000:Real],'_:_['i.Intruder,
+    '$1001:Real]]]],'nI['_@_['_*_['n['a.Honest,'ra1.Fresh],'n['b.Honest,
+    'rb1.Fresh]],'_->_['_:_['i.Intruder,'$1001:Real],'_:_['a.Honest,
+    '$1002:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['b.Honest,'$994:Real],'_:_['i.Intruder,
+    '$995:Real]]]],'nI['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,
+    'rb2.Fresh]],'_->_['_:_['i.Intruder,'$995:Real],'_:_['a.Honest,
+    '$997:Real]]]],'nI['_@_['n['a.Honest,'ra1.Fresh],'_->_['_:_['a.Honest,
+    '$997:Real],'_:_['i.Intruder,'$998:Real]]]],'nI['_@_['n['a.Honest,
+    'ra1.Fresh],'_->_['_:_['i.Intruder,'$998:Real],'_:_['b.Honest,
+    '$1000:Real]]]]]],
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '$993:Real ; 
+  'dai:Real <- '$999:Real ; 
+  'dbi:Real <- '$996:Real ; 
+  't1:Real <- '$994:Real ; 
+  't2:Real <- '$995:Real ; 
+  't3:Real <- '$997:Real ; 
+  't4:Real <- '$998:Real ; 
+  't5:Real <- '$1000:Real ; 
+  't6:Real <- '$1001:Real ; 
+  't7:Real <- '$1002:Real,
+  '$1000:Real <- '%4:Real ; 
+  '$1001:Real <- '%6:Real ; 
+  '$1002:Real <- '%9:Real ; 
+  '$993:Real <- '%10:Real ; 
+  '$994:Real <- '%1:Real ; 
+  '$995:Real <- '%2:Real ; 
+  '$996:Real <- '%5:Real ; 
+  '$997:Real <- '%7:Real ; 
+  '$998:Real <- '%3:Real ; 
+  '$999:Real <- '%8:Real ; 
+  'CommitB:NTMsg <- 'commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]]
+    ; 
+  'NA':Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NA:Nonce <- 'n['a.Honest,'ra1.Fresh] ; 
+  'NB':Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'NB:Nonce <- 'n['b.Honest,'rb1.Fresh] ; 
+  'd:Real <- '%10:Real ; 
+  'dai:Real <- '%8:Real ; 
+  'dbi:Real <- '%5:Real ; 
+  't1:Real <- '%1:Real ; 
+  't2:Real <- '%2:Real ; 
+  't3:Real <- '%7:Real ; 
+  't4:Real <- '%3:Real ; 
+  't5:Real <- '%4:Real ; 
+  't6:Real <- '%6:Real ; 
+  't7:Real <- '%9:Real,'_and_['_and_['_and_['_and_['_and_['_and_['_and_[
+    'true.Boolean,'_and_['_<=_['_-_['$1002:Real,'$997:Real],'_*_['2/1.Real,
+    '$993:Real]],'_>_['$993:Real,'0/1.Real]]],'_and_['_and_['_>=_['$1001:Real,
+    '$997:Real],'_===_['$1002:Real,'_+_['$1001:Real,'$999:Real]]],'_>_[
+    '$999:Real,'0/1.Real]]],'_and_['_===_['$1001:Real,'_+_['$1000:Real,
+    '$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_['$1000:Real,'_+_[
+    '$998:Real,'$996:Real]],'_>_['$996:Real,'0/1.Real]]],'_and_['_===_[
+    '$998:Real,'_+_['$997:Real,'$999:Real]],'_>_['$999:Real,'0/1.Real]]],
+    '_and_['_===_['$997:Real,'_+_['$995:Real,'$999:Real]],'_>_['$999:Real,
+    '0/1.Real]]],'_and_['_===_['$995:Real,'_+_['$994:Real,'$996:Real]],'_>_[
+    '$996:Real,'0/1.Real]]]}
+Bye.

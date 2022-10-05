@@ -1,0 +1,829 @@
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.2.1 built: Feb 21 2022 18:21:17
+	     Copyright 1997-2022 SRI International
+		   Mon Oct  3 20:44:47 2022
+==========================================
+reduce in TEST-PROTOCOL : narrowing(upModule('BANK-ACCOUNT, false), upTerm(<
+    bal: X:Real pend: Y:Real overdraft: B:Bool > # M:MsgConf), =>*, upTerm(<
+    bal: X':Real pend: Y':Real overdraft: B':Bool > # M':MsgConf), standard
+    smt, none, empty, 'true.Boolean, '@, 3, unbounded) .
+rewrites: 17329 in 24ms cpu (22ms real) (722041 rewrites/second)
+result SolutionList: {(1).NzNat,'_#_['<`bal:_pend:_overdraft:_>['X:Real,
+    'Y:Real,'B:Bool],'M:MsgConf],(none).Substitution,
+  'B':Bool <- '%3:Bool ; 
+  'B:Bool <- '%3:Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'M:MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '%1:Real ; 
+  'X:Real <- '%1:Real ; 
+  'Y':Real <- '%2:Real ; 
+  'Y:Real <- '%2:Real,(true).Boolean} ; {(2).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['$1:Real,'$4:Real],'$2:Real,'false.Bool],
+    '$3:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$3:MsgConf ; 
+  'X:Real <- '$1:Real ; 
+  'Y:Real <- '$2:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%3:Real ; 
+  '$3:MsgConf <- '%4:MsgConf ; 
+  '$4:Real <- '%2:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_+_['%1:Real,'%2:Real] ; 
+  'Y':Real <- '%3:Real,'true.Boolean} ; {(3).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['$3:Real,'$2:Real],'_-_['$4:Real,'$2:Real],
+    'false.Bool],'$1:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$1:MsgConf,'withdraw['$2:Real]] ; 
+  'X:Real <- '$3:Real ; 
+  'Y:Real <- '$4:Real,
+  '$1:MsgConf <- '%4:MsgConf ; 
+  '$2:Real <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  '$4:Real <- '%3:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_-_['%1:Real,'%2:Real] ; 
+  'Y':Real <- '_-_['%3:Real,'%2:Real],'_and_['true.Boolean,'_<=_['$2:Real,
+    '$3:Real]]} ; {(4).NzNat,'_#_['<`bal:_pend:_overdraft:_>['$3:Real,'$4:Real,
+    'true.Bool],'$1:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$1:MsgConf,'withdraw['$2:Real]] ; 
+  'X:Real <- '$3:Real ; 
+  'Y:Real <- '$4:Real,
+  '$1:MsgConf <- '%3:MsgConf ; 
+  '$3:Real <- '%1:Real ; 
+  '$4:Real <- '%2:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%3:MsgConf ; 
+  'X':Real <- '%1:Real ; 
+  'Y':Real <- '%2:Real,'_and_['true.Boolean,'_>_['$2:Real,'$3:Real]]} ; {(
+    5).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['$1:Real,'$2:Real],
+    '$3:Real],'_+_['$3:Real,'$2:Real],'false.Bool],'_`,_['$4:MsgConf,'withdraw[
+    '$2:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$4:MsgConf ; 
+  'X:Real <- '_+_['_+_['$1:Real,'$2:Real],'$3:Real] ; 
+  'Y:Real <- '$3:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  '$3:Real <- '%3:Real ; 
+  '$4:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(6).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['$1:Real,'$2:Real],'$5:Real],'$3:Real,
+    'false.Bool],'$4:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$4:MsgConf ; 
+  'X:Real <- '$1:Real ; 
+  'Y:Real <- '$3:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  '$3:Real <- '%4:Real ; 
+  '$4:MsgConf <- '%5:MsgConf ; 
+  '$5:Real <- '%3:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '%4:Real,'true.Boolean} ; {(7).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['$3:Real,'$4:Real],'$2:Real],'_-_[
+    '$5:Real,'$2:Real],'false.Bool],'$1:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$1:MsgConf,'withdraw['$2:Real]] ; 
+  'X:Real <- '$3:Real ; 
+  'Y:Real <- '$5:Real,
+  '$1:MsgConf <- '%5:MsgConf ; 
+  '$2:Real <- '%3:Real ; 
+  '$3:Real <- '%1:Real ; 
+  '$4:Real <- '%2:Real ; 
+  '$5:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['%4:Real,'%3:Real],'_and_['true.Boolean,'_<=_['$2:Real,'_+_[
+    '$3:Real,'$4:Real]]]} ; {(8).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_[
+    '$3:Real,'$4:Real],'$5:Real,'true.Bool],'$1:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$1:MsgConf,'withdraw['$2:Real]] ; 
+  'X:Real <- '$3:Real ; 
+  'Y:Real <- '$5:Real,
+  '$1:MsgConf <- '%4:MsgConf ; 
+  '$3:Real <- '%1:Real ; 
+  '$4:Real <- '%2:Real ; 
+  '$5:Real <- '%3:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_+_['%1:Real,'%2:Real] ; 
+  'Y':Real <- '%3:Real,'_and_['true.Boolean,'_>_['$2:Real,'_+_['$3:Real,
+    '$4:Real]]]} ; {(9).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_+_[
+    '$1:Real,'$2:Real],'$3:Real],'_+_['$3:Real,'$2:Real],'false.Bool],'_`,_[
+    '$4:MsgConf,'withdraw['$2:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$4:MsgConf ; 
+  'X:Real <- '_+_['$1:Real,'$2:Real] ; 
+  'Y:Real <- '$3:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  '$3:Real <- '%3:Real ; 
+  '$4:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(10).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_-_['$1:Real,'$2:Real],'$5:Real],'_-_[
+    '$3:Real,'$2:Real],'false.Bool],'$4:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$4:MsgConf,'withdraw['$2:Real]] ; 
+  'X:Real <- '$1:Real ; 
+  'Y:Real <- '$3:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  '$3:Real <- '%4:Real ; 
+  '$4:MsgConf <- '%5:MsgConf ; 
+  '$5:Real <- '%3:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_-_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['%4:Real,'%2:Real],'_and_['true.Boolean,'_<=_['$2:Real,
+    '$1:Real]]} ; {(11).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_-_[
+    '$5:Real,'$6:Real],'$4:Real],'_-_['_-_['$7:Real,'$6:Real],'$4:Real],
+    'false.Bool],'$3:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$3:MsgConf,'withdraw['$4:Real],'withdraw['$6:Real]] ; 
+  'X:Real <- '$5:Real ; 
+  'Y:Real <- '$7:Real,
+  '$3:MsgConf <- '%5:MsgConf ; 
+  '$4:Real <- '%3:Real ; 
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_-_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['_-_['%4:Real,'%2:Real],'%3:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$6:Real,'$5:Real]],'_<=_['$4:Real,'_-_['$5:Real,
+    '$6:Real]]]} ; {(12).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['$7:Real,
+    '$8:Real],'_-_['$9:Real,'$8:Real],'true.Bool],'$5:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$5:MsgConf,'withdraw['$6:Real],'withdraw['$8:Real]] ; 
+  'X:Real <- '$7:Real ; 
+  'Y:Real <- '$9:Real,
+  '$5:MsgConf <- '%4:MsgConf ; 
+  '$7:Real <- '%1:Real ; 
+  '$8:Real <- '%2:Real ; 
+  '$9:Real <- '%3:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_-_['%1:Real,'%2:Real] ; 
+  'Y':Real <- '_-_['%3:Real,'%2:Real],'_and_['_and_['true.Boolean,'_<=_[
+    '$8:Real,'$7:Real]],'_>_['$6:Real,'_-_['$7:Real,'$8:Real]]]} ; {(13).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['_+_['$5:Real,'$6:Real],
+    '$7:Real],'$9:Real],'_+_['$7:Real,'$6:Real],'false.Bool],'_`,_['$8:MsgConf,
+    'withdraw['$6:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$8:MsgConf ; 
+  'X:Real <- '_+_['_+_['$5:Real,'$6:Real],'$7:Real] ; 
+  'Y:Real <- '$7:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:MsgConf <- '%5:MsgConf ; 
+  '$9:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(14).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$6:Real,'$7:Real],'$8:Real],
+    '$5:Real],'_-_['_+_['$8:Real,'$7:Real],'$5:Real],'false.Bool],'_`,_[
+    '$9:MsgConf,'withdraw['$7:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$9:MsgConf,'withdraw['$5:Real]] ; 
+  'X:Real <- '_+_['_+_['$6:Real,'$7:Real],'$8:Real] ; 
+  'Y:Real <- '$8:Real,
+  '$5:Real <- '%4:Real ; 
+  '$6:Real <- '%1:Real ; 
+  '$7:Real <- '%2:Real ; 
+  '$8:Real <- '%3:Real ; 
+  '$9:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%4:Real],'_and_['true.Boolean,
+    '_<=_['$5:Real,'_+_['_+_['$6:Real,'$7:Real],'$8:Real]]]} ; {(15).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$5:Real,'$6:Real],
+    '$7:Real],'$6:Real],'_-_['_+_['$7:Real,'$6:Real],'$6:Real],'false.Bool],
+    '$8:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$8:MsgConf ; 
+  'X:Real <- '_+_['_+_['$5:Real,'$6:Real],'$7:Real] ; 
+  'Y:Real <- '$7:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%2:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%2:Real],'_and_['true.Boolean,
+    '_<=_['$6:Real,'_+_['_+_['$5:Real,'$6:Real],'$7:Real]]]} ; {(16).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['$6:Real,'$7:Real],'$8:Real],
+    '_+_['$8:Real,'$7:Real],'true.Bool],'_`,_['$9:MsgConf,'withdraw[
+    '$7:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$9:MsgConf,'withdraw['$5:Real]] ; 
+  'X:Real <- '_+_['_+_['$6:Real,'$7:Real],'$8:Real] ; 
+  'Y:Real <- '$8:Real,
+  '$6:Real <- '%1:Real ; 
+  '$7:Real <- '%2:Real ; 
+  '$8:Real <- '%3:Real ; 
+  '$9:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$5:Real,'_+_[
+    '_+_['$6:Real,'$7:Real],'$8:Real]]]} ; {(17).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['$5:Real,'$6:Real],'$7:Real],'_+_[
+    '$7:Real,'$6:Real],'true.Bool],'$8:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$8:MsgConf ; 
+  'X:Real <- '_+_['_+_['$5:Real,'$6:Real],'$7:Real] ; 
+  'Y:Real <- '$7:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$6:Real,'_+_[
+    '_+_['$5:Real,'$6:Real],'$7:Real]]]} ; {(18).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['_+_['$5:Real,'$6:Real],'$7:Real],
+    '$10:Real],'$8:Real,'false.Bool],'$9:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$9:MsgConf ; 
+  'X:Real <- '$5:Real ; 
+  'Y:Real <- '$8:Real,
+  '$10:Real <- '%4:Real ; 
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:Real <- '%5:Real ; 
+  '$9:MsgConf <- '%6:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '%5:Real,'true.Boolean} ; {(19).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$7:Real,'$8:Real],'$9:Real],
+    '$6:Real],'_-_['$10:Real,'$6:Real],'false.Bool],'$5:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$5:MsgConf,'withdraw['$6:Real]] ; 
+  'X:Real <- '$7:Real ; 
+  'Y:Real <- '$10:Real,
+  '$10:Real <- '%5:Real ; 
+  '$5:MsgConf <- '%6:MsgConf ; 
+  '$6:Real <- '%4:Real ; 
+  '$7:Real <- '%1:Real ; 
+  '$8:Real <- '%2:Real ; 
+  '$9:Real <- '%3:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['%5:Real,'%4:Real],'_and_['true.Boolean,'_<=_['$6:Real,'_+_[
+    '_+_['$7:Real,'$8:Real],'$9:Real]]]} ; {(20).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['$7:Real,'$8:Real],'$9:Real],
+    '$10:Real,'true.Bool],'$5:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$5:MsgConf,'withdraw['$6:Real]] ; 
+  'X:Real <- '$7:Real ; 
+  'Y:Real <- '$10:Real,
+  '$10:Real <- '%4:Real ; 
+  '$5:MsgConf <- '%5:MsgConf ; 
+  '$7:Real <- '%1:Real ; 
+  '$8:Real <- '%2:Real ; 
+  '$9:Real <- '%3:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '%4:Real,'_and_['true.Boolean,'_>_['$6:Real,'_+_['_+_['$7:Real,
+    '$8:Real],'$9:Real]]]} ; {(21).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_[
+    '_+_['$5:Real,'$6:Real],'$7:Real],'_+_['$7:Real,'$6:Real],'false.Bool],
+    '_`,_['$8:MsgConf,'withdraw['$6:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$8:MsgConf ; 
+  'X:Real <- '$5:Real ; 
+  'Y:Real <- '$7:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(22).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_-_['_+_['$5:Real,'$6:Real],'$7:Real],
+    '$10:Real],'_-_['$8:Real,'$7:Real],'false.Bool],'$9:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$9:MsgConf,'withdraw['$7:Real]] ; 
+  'X:Real <- '$5:Real ; 
+  'Y:Real <- '$8:Real,
+  '$10:Real <- '%4:Real ; 
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  '$7:Real <- '%3:Real ; 
+  '$8:Real <- '%5:Real ; 
+  '$9:MsgConf <- '%6:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_+_['_-_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['%5:Real,'%3:Real],'_and_['true.Boolean,'_<=_['$7:Real,'_+_[
+    '$5:Real,'$6:Real]]]} ; {(23).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_[
+    '_-_['_+_['$10:Real,'$11:Real],'$12:Real],'$9:Real],'_-_['_-_['$13:Real,
+    '$12:Real],'$9:Real],'false.Bool],'$8:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$8:MsgConf,'withdraw['$9:Real],'withdraw['$12:Real]] ; 
+  'X:Real <- '$10:Real ; 
+  'Y:Real <- '$13:Real,
+  '$10:Real <- '%1:Real ; 
+  '$11:Real <- '%2:Real ; 
+  '$12:Real <- '%3:Real ; 
+  '$13:Real <- '%5:Real ; 
+  '$8:MsgConf <- '%6:MsgConf ; 
+  '$9:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_-_['_-_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_-_['%5:Real,'%3:Real],'%4:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$12:Real,'_+_['$10:Real,'$11:Real]]],'_<=_['$9:Real,
+    '_-_['_+_['$10:Real,'$11:Real],'$12:Real]]]} ; {(24).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['$13:Real,'$14:Real],'$15:Real],'_-_[
+    '$16:Real,'$15:Real],'true.Bool],'$11:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$11:MsgConf,'withdraw['$12:Real],'withdraw['$15:Real]] ;
+    
+  'X:Real <- '$13:Real ; 
+  'Y:Real <- '$16:Real,
+  '$11:MsgConf <- '%5:MsgConf ; 
+  '$13:Real <- '%1:Real ; 
+  '$14:Real <- '%2:Real ; 
+  '$15:Real <- '%3:Real ; 
+  '$16:Real <- '%4:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['%4:Real,'%3:Real],'_and_['_and_['true.Boolean,'_<=_[
+    '$15:Real,'_+_['$13:Real,'$14:Real]]],'_>_['$12:Real,'_-_['_+_['$13:Real,
+    '$14:Real],'$15:Real]]]} ; {(25).NzNat,'_#_['<`bal:_pend:_overdraft:_>[
+    '_+_['_+_['_+_['$11:Real,'$12:Real],'$13:Real],'$15:Real],'_+_['$13:Real,
+    '$12:Real],'false.Bool],'_`,_['$14:MsgConf,'withdraw['$12:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$14:MsgConf ; 
+  'X:Real <- '_+_['$11:Real,'$12:Real] ; 
+  'Y:Real <- '$13:Real,
+  '$11:Real <- '%1:Real ; 
+  '$12:Real <- '%2:Real ; 
+  '$13:Real <- '%3:Real ; 
+  '$14:MsgConf <- '%5:MsgConf ; 
+  '$15:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(26).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$12:Real,'$13:Real],'$14:Real],
+    '$11:Real],'_-_['_+_['$14:Real,'$13:Real],'$11:Real],'false.Bool],'_`,_[
+    '$15:MsgConf,'withdraw['$13:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$15:MsgConf,'withdraw['$11:Real]] ; 
+  'X:Real <- '_+_['$12:Real,'$13:Real] ; 
+  'Y:Real <- '$14:Real,
+  '$11:Real <- '%4:Real ; 
+  '$12:Real <- '%1:Real ; 
+  '$13:Real <- '%2:Real ; 
+  '$14:Real <- '%3:Real ; 
+  '$15:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%4:Real],'_and_['true.Boolean,
+    '_<=_['$11:Real,'_+_['_+_['$12:Real,'$13:Real],'$14:Real]]]} ; {(27).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$11:Real,'$12:Real],
+    '$13:Real],'$12:Real],'_-_['_+_['$13:Real,'$12:Real],'$12:Real],
+    'false.Bool],'$14:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$14:MsgConf ; 
+  'X:Real <- '_+_['$11:Real,'$12:Real] ; 
+  'Y:Real <- '$13:Real,
+  '$11:Real <- '%1:Real ; 
+  '$12:Real <- '%2:Real ; 
+  '$13:Real <- '%3:Real ; 
+  '$14:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%2:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%2:Real],'_and_['true.Boolean,
+    '_<=_['$12:Real,'_+_['_+_['$11:Real,'$12:Real],'$13:Real]]]} ; {(28).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['$12:Real,'$13:Real],'$14:Real],
+    '_+_['$14:Real,'$13:Real],'true.Bool],'_`,_['$15:MsgConf,'withdraw[
+    '$13:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$15:MsgConf,'withdraw['$11:Real]] ; 
+  'X:Real <- '_+_['$12:Real,'$13:Real] ; 
+  'Y:Real <- '$14:Real,
+  '$12:Real <- '%1:Real ; 
+  '$13:Real <- '%2:Real ; 
+  '$14:Real <- '%3:Real ; 
+  '$15:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$11:Real,'_+_[
+    '_+_['$12:Real,'$13:Real],'$14:Real]]]} ; {(29).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['$11:Real,'$12:Real],'$13:Real],'_+_[
+    '$13:Real,'$12:Real],'true.Bool],'$14:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$14:MsgConf ; 
+  'X:Real <- '_+_['$11:Real,'$12:Real] ; 
+  'Y:Real <- '$13:Real,
+  '$11:Real <- '%1:Real ; 
+  '$12:Real <- '%2:Real ; 
+  '$13:Real <- '%3:Real ; 
+  '$14:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_+_['_+_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$12:Real,'_+_[
+    '_+_['$11:Real,'$12:Real],'$13:Real]]]} ; {(30).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['_-_['$11:Real,'$12:Real],'$13:Real],
+    '$16:Real],'_-_['$14:Real,'$12:Real],'false.Bool],'$15:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$15:MsgConf,'withdraw['$12:Real]] ; 
+  'X:Real <- '$11:Real ; 
+  'Y:Real <- '$14:Real,
+  '$11:Real <- '%1:Real ; 
+  '$12:Real <- '%2:Real ; 
+  '$13:Real <- '%3:Real ; 
+  '$14:Real <- '%5:Real ; 
+  '$15:MsgConf <- '%6:MsgConf ; 
+  '$16:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_+_['_+_['_-_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['%5:Real,'%2:Real],'_and_['true.Boolean,'_<=_['$12:Real,
+    '$11:Real]]} ; {(31).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_+_['_-_[
+    '$15:Real,'$16:Real],'$17:Real],'$14:Real],'_-_['_-_['$18:Real,'$16:Real],
+    '$14:Real],'false.Bool],'$13:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$13:MsgConf,'withdraw['$14:Real],'withdraw['$16:Real]] ;
+    
+  'X:Real <- '$15:Real ; 
+  'Y:Real <- '$18:Real,
+  '$13:MsgConf <- '%6:MsgConf ; 
+  '$14:Real <- '%4:Real ; 
+  '$15:Real <- '%1:Real ; 
+  '$16:Real <- '%2:Real ; 
+  '$17:Real <- '%3:Real ; 
+  '$18:Real <- '%5:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_-_['_+_['_-_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_-_['%5:Real,'%2:Real],'%4:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$16:Real,'$15:Real]],'_<=_['$14:Real,'_+_['_-_[
+    '$15:Real,'$16:Real],'$17:Real]]]} ; {(32).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_-_['$17:Real,'$18:Real],'$19:Real],'_-_[
+    '$20:Real,'$18:Real],'true.Bool],'$15:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$15:MsgConf,'withdraw['$16:Real],'withdraw['$18:Real]] ;
+    
+  'X:Real <- '$17:Real ; 
+  'Y:Real <- '$20:Real,
+  '$15:MsgConf <- '%5:MsgConf ; 
+  '$17:Real <- '%1:Real ; 
+  '$18:Real <- '%2:Real ; 
+  '$19:Real <- '%3:Real ; 
+  '$20:Real <- '%4:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_-_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['%4:Real,'%2:Real],'_and_['_and_['true.Boolean,'_<=_[
+    '$18:Real,'$17:Real]],'_>_['$16:Real,'_+_['_-_['$17:Real,'$18:Real],
+    '$19:Real]]]} ; {(33).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_-_['_-_[
+    '$15:Real,'$16:Real],'$17:Real],'$20:Real],'_-_['_-_['$18:Real,'$16:Real],
+    '$17:Real],'false.Bool],'$19:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$19:MsgConf,'withdraw['$16:Real],'withdraw['$17:Real]] ;
+    
+  'X:Real <- '$15:Real ; 
+  'Y:Real <- '$18:Real,
+  '$15:Real <- '%1:Real ; 
+  '$16:Real <- '%2:Real ; 
+  '$17:Real <- '%3:Real ; 
+  '$18:Real <- '%5:Real ; 
+  '$19:MsgConf <- '%6:MsgConf ; 
+  '$20:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_+_['_-_['_-_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_-_['%5:Real,'%2:Real],'%3:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$16:Real,'$15:Real]],'_<=_['$17:Real,'_-_['$15:Real,
+    '$16:Real]]]} ; {(34).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_-_['_-_[
+    '$20:Real,'$21:Real],'$22:Real],'$19:Real],'_-_['_-_['_-_['$23:Real,
+    '$21:Real],'$22:Real],'$19:Real],'false.Bool],'$18:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$18:MsgConf,'withdraw['$19:Real],'withdraw['$21:Real],
+    'withdraw['$22:Real]] ; 
+  'X:Real <- '$20:Real ; 
+  'Y:Real <- '$23:Real,
+  '$18:MsgConf <- '%6:MsgConf ; 
+  '$19:Real <- '%4:Real ; 
+  '$20:Real <- '%1:Real ; 
+  '$21:Real <- '%2:Real ; 
+  '$22:Real <- '%3:Real ; 
+  '$23:Real <- '%5:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%6:MsgConf ; 
+  'X':Real <- '_-_['_-_['_-_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_-_['_-_['%5:Real,'%2:Real],'%3:Real],'%4:Real],'_and_[
+    '_and_['_and_['true.Boolean,'_<=_['$21:Real,'$20:Real]],'_<=_['$22:Real,
+    '_-_['$20:Real,'$21:Real]]],'_<=_['$19:Real,'_-_['_-_['$20:Real,'$21:Real],
+    '$22:Real]]]} ; {(35).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_-_[
+    '$23:Real,'$24:Real],'$25:Real],'_-_['_-_['$26:Real,'$24:Real],'$25:Real],
+    'true.Bool],'$21:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$21:MsgConf,'withdraw['$22:Real],'withdraw['$24:Real],
+    'withdraw['$25:Real]] ; 
+  'X:Real <- '$23:Real ; 
+  'Y:Real <- '$26:Real,
+  '$21:MsgConf <- '%5:MsgConf ; 
+  '$23:Real <- '%1:Real ; 
+  '$24:Real <- '%2:Real ; 
+  '$25:Real <- '%3:Real ; 
+  '$26:Real <- '%4:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_-_['%1:Real,'%2:Real],'%3:Real] ; 
+  'Y':Real <- '_-_['_-_['%4:Real,'%2:Real],'%3:Real],'_and_['_and_['_and_[
+    'true.Boolean,'_<=_['$24:Real,'$23:Real]],'_<=_['$25:Real,'_-_['$23:Real,
+    '$24:Real]]],'_>_['$22:Real,'_-_['_-_['$23:Real,'$24:Real],'$25:Real]]]} ;
+    {(36).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['_+_['_+_['$21:Real,
+    '$22:Real],'$23:Real],'$24:Real],'$26:Real],'_+_['$23:Real,'$22:Real],
+    'false.Bool],'_`,_['$25:MsgConf,'withdraw['$22:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$25:MsgConf ; 
+  'X:Real <- '_+_['_+_['$21:Real,'$22:Real],'$23:Real] ; 
+  'Y:Real <- '$23:Real,
+  '$21:Real <- '%1:Real ; 
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%3:Real ; 
+  '$24:Real <- '%4:Real ; 
+  '$25:MsgConf <- '%6:MsgConf ; 
+  '$26:Real <- '%5:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%6:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%5:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'true.Boolean} ; {(37).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['_+_['$22:Real,'$23:Real],
+    '$24:Real],'$25:Real],'$21:Real],'_-_['_+_['$24:Real,'$23:Real],'$21:Real],
+    'false.Bool],'_`,_['$26:MsgConf,'withdraw['$23:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$26:MsgConf,'withdraw['$21:Real]] ; 
+  'X:Real <- '_+_['_+_['$22:Real,'$23:Real],'$24:Real] ; 
+  'Y:Real <- '$24:Real,
+  '$21:Real <- '%5:Real ; 
+  '$22:Real <- '%1:Real ; 
+  '$23:Real <- '%2:Real ; 
+  '$24:Real <- '%3:Real ; 
+  '$25:Real <- '%4:Real ; 
+  '$26:MsgConf <- '%6:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%6:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_-_['_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%5:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%5:Real],'_and_['true.Boolean,
+    '_<=_['$21:Real,'_+_['_+_['_+_['$22:Real,'$23:Real],'$24:Real],
+    '$25:Real]]]} ; {(38).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_+_['_+_[
+    '_+_['$21:Real,'$22:Real],'$23:Real],'$24:Real],'$22:Real],'_-_['_+_[
+    '$23:Real,'$22:Real],'$22:Real],'false.Bool],'$25:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$25:MsgConf ; 
+  'X:Real <- '_+_['_+_['$21:Real,'$22:Real],'$23:Real] ; 
+  'Y:Real <- '$23:Real,
+  '$21:Real <- '%1:Real ; 
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%3:Real ; 
+  '$24:Real <- '%4:Real ; 
+  '$25:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%2:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%2:Real],'_and_['true.Boolean,
+    '_<=_['$22:Real,'_+_['_+_['_+_['$21:Real,'$22:Real],'$23:Real],
+    '$24:Real]]]} ; {(39).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_+_['_+_[
+    '$22:Real,'$23:Real],'$24:Real],'$25:Real],'_+_['$24:Real,'$23:Real],
+    'true.Bool],'_`,_['$26:MsgConf,'withdraw['$23:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$26:MsgConf,'withdraw['$21:Real]] ; 
+  'X:Real <- '_+_['_+_['$22:Real,'$23:Real],'$24:Real] ; 
+  'Y:Real <- '$24:Real,
+  '$22:Real <- '%1:Real ; 
+  '$23:Real <- '%2:Real ; 
+  '$24:Real <- '%3:Real ; 
+  '$25:Real <- '%4:Real ; 
+  '$26:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$21:Real,'_+_[
+    '_+_['_+_['$22:Real,'$23:Real],'$24:Real],'$25:Real]]]} ; {(40).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['_+_['$21:Real,'$22:Real],'$23:Real],
+    '$24:Real],'_+_['$23:Real,'$22:Real],'true.Bool],'$25:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$25:MsgConf ; 
+  'X:Real <- '_+_['_+_['$21:Real,'$22:Real],'$23:Real] ; 
+  'Y:Real <- '$23:Real,
+  '$21:Real <- '%1:Real ; 
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%3:Real ; 
+  '$24:Real <- '%4:Real ; 
+  '$25:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_+_['%3:Real,'%2:Real],'_and_['true.Boolean,'_>_['$22:Real,'_+_[
+    '_+_['_+_['$21:Real,'$22:Real],'$23:Real],'$24:Real]]]} ; {(41).NzNat,'_#_[
+    '<`bal:_pend:_overdraft:_>['_+_['_+_['_+_['$21:Real,'$22:Real],'$23:Real],
+    '_+_['$23:Real,'$22:Real]],'_+_['_+_['$23:Real,'$22:Real],'$23:Real],
+    'false.Bool],'_`,_['$24:MsgConf,'withdraw['$22:Real],'withdraw[
+    '$23:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$24:MsgConf ; 
+  'X:Real <- '_+_['_+_['$21:Real,'$22:Real],'$23:Real] ; 
+  'Y:Real <- '$23:Real,
+  '$21:Real <- '%1:Real ; 
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%3:Real ; 
+  '$24:MsgConf <- '%4:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%4:MsgConf,'withdraw['%2:Real],'withdraw['%3:Real]] ; 
+  'X':Real <- '_+_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'_+_['%3:Real,
+    '%2:Real]] ; 
+  'Y':Real <- '_+_['_+_['%3:Real,'%2:Real],'%3:Real],'true.Boolean} ; {(
+    42).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_-_['_+_['_+_['$21:Real,
+    '$22:Real],'$23:Real],'$24:Real],'$26:Real],'_-_['_+_['$23:Real,'$22:Real],
+    '$24:Real],'false.Bool],'_`,_['$25:MsgConf,'withdraw['$22:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$25:MsgConf,'withdraw['$24:Real]] ; 
+  'X:Real <- '_+_['_+_['$21:Real,'$22:Real],'$23:Real] ; 
+  'Y:Real <- '$23:Real,
+  '$21:Real <- '%1:Real ; 
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%3:Real ; 
+  '$24:Real <- '%4:Real ; 
+  '$25:MsgConf <- '%6:MsgConf ; 
+  '$26:Real <- '%5:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%6:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_+_['_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%5:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%4:Real],'_and_['true.Boolean,
+    '_<=_['$24:Real,'_+_['_+_['$21:Real,'$22:Real],'$23:Real]]]} ; {(43).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_-_['_-_['_+_['_+_['$26:Real,'$27:Real],
+    '$28:Real],'$29:Real],'$25:Real],'_-_['_-_['_+_['$28:Real,'$27:Real],
+    '$29:Real],'$25:Real],'false.Bool],'_`,_['$30:MsgConf,'withdraw[
+    '$27:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$30:MsgConf,'withdraw['$25:Real],'withdraw['$29:Real]] ;
+    
+  'X:Real <- '_+_['_+_['$26:Real,'$27:Real],'$28:Real] ; 
+  'Y:Real <- '$28:Real,
+  '$25:Real <- '%5:Real ; 
+  '$26:Real <- '%1:Real ; 
+  '$27:Real <- '%2:Real ; 
+  '$28:Real <- '%3:Real ; 
+  '$29:Real <- '%4:Real ; 
+  '$30:MsgConf <- '%6:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '_`,_['%6:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_-_['_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%5:Real] ; 
+  'Y':Real <- '_-_['_-_['_+_['%3:Real,'%2:Real],'%4:Real],'%5:Real],'_and_[
+    '_and_['true.Boolean,'_<=_['$29:Real,'_+_['_+_['$26:Real,'$27:Real],
+    '$28:Real]]],'_<=_['$25:Real,'_-_['_+_['_+_['$26:Real,'$27:Real],
+    '$28:Real],'$29:Real]]]} ; {(44).NzNat,'_#_['<`bal:_pend:_overdraft:_>[
+    '_-_['_-_['_+_['_+_['$29:Real,'$30:Real],'$31:Real],'$32:Real],'$30:Real],
+    '_-_['_-_['_+_['$31:Real,'$30:Real],'$32:Real],'$30:Real],'false.Bool],
+    '$33:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$33:MsgConf,'withdraw['$32:Real]] ; 
+  'X:Real <- '_+_['_+_['$29:Real,'$30:Real],'$31:Real] ; 
+  'Y:Real <- '$31:Real,
+  '$29:Real <- '%1:Real ; 
+  '$30:Real <- '%2:Real ; 
+  '$31:Real <- '%3:Real ; 
+  '$32:Real <- '%4:Real ; 
+  '$33:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real],
+    '%2:Real] ; 
+  'Y':Real <- '_-_['_-_['_+_['%3:Real,'%2:Real],'%4:Real],'%2:Real],'_and_[
+    '_and_['true.Boolean,'_<=_['$32:Real,'_+_['_+_['$29:Real,'$30:Real],
+    '$31:Real]]],'_<=_['$30:Real,'_-_['_+_['_+_['$29:Real,'$30:Real],
+    '$31:Real],'$32:Real]]]} ; {(45).NzNat,'_#_['<`bal:_pend:_overdraft:_>[
+    '_-_['_+_['_+_['$34:Real,'$35:Real],'$36:Real],'$37:Real],'_-_['_+_[
+    '$36:Real,'$35:Real],'$37:Real],'true.Bool],'_`,_['$38:MsgConf,'withdraw[
+    '$35:Real]]],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$38:MsgConf,'withdraw['$33:Real],'withdraw['$37:Real]] ;
+    
+  'X:Real <- '_+_['_+_['$34:Real,'$35:Real],'$36:Real] ; 
+  'Y:Real <- '$36:Real,
+  '$34:Real <- '%1:Real ; 
+  '$35:Real <- '%2:Real ; 
+  '$36:Real <- '%3:Real ; 
+  '$37:Real <- '%4:Real ; 
+  '$38:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '_`,_['%5:MsgConf,'withdraw['%2:Real]] ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%4:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$37:Real,'_+_['_+_['$34:Real,'$35:Real],'$36:Real]]],
+    '_>_['$33:Real,'_-_['_+_['_+_['$34:Real,'$35:Real],'$36:Real],'$37:Real]]]}
+    ; {(46).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_-_['_+_['_+_['$37:Real,
+    '$38:Real],'$39:Real],'$40:Real],'_-_['_+_['$39:Real,'$38:Real],'$40:Real],
+    'true.Bool],'$41:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$41:MsgConf,'withdraw['$40:Real]] ; 
+  'X:Real <- '_+_['_+_['$37:Real,'$38:Real],'$39:Real] ; 
+  'Y:Real <- '$39:Real,
+  '$37:Real <- '%1:Real ; 
+  '$38:Real <- '%2:Real ; 
+  '$39:Real <- '%3:Real ; 
+  '$40:Real <- '%4:Real ; 
+  '$41:MsgConf <- '%5:MsgConf ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%4:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%4:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$40:Real,'_+_['_+_['$37:Real,'$38:Real],'$39:Real]]],
+    '_>_['$38:Real,'_-_['_+_['_+_['$37:Real,'$38:Real],'$39:Real],'$40:Real]]]}
+    ; {(47).NzNat,'_#_['<`bal:_pend:_overdraft:_>['_+_['_-_['_+_['_+_[
+    '$37:Real,'$38:Real],'$39:Real],'$38:Real],'$41:Real],'_-_['_+_['$39:Real,
+    '$38:Real],'$38:Real],'false.Bool],'$40:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '$40:MsgConf ; 
+  'X:Real <- '_+_['_+_['$37:Real,'$38:Real],'$39:Real] ; 
+  'Y:Real <- '$39:Real,
+  '$37:Real <- '%1:Real ; 
+  '$38:Real <- '%2:Real ; 
+  '$39:Real <- '%3:Real ; 
+  '$40:MsgConf <- '%5:MsgConf ; 
+  '$41:Real <- '%4:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_+_['_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%2:Real],
+    '%4:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%2:Real],'_and_['true.Boolean,
+    '_<=_['$38:Real,'_+_['_+_['$37:Real,'$38:Real],'$39:Real]]]} ; {(48).NzNat,
+    '_#_['<`bal:_pend:_overdraft:_>['_-_['_-_['_+_['_+_['$42:Real,'$43:Real],
+    '$44:Real],'$43:Real],'$41:Real],'_-_['_-_['_+_['$44:Real,'$43:Real],
+    '$43:Real],'$41:Real],'false.Bool],'$40:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$40:MsgConf,'withdraw['$41:Real]] ; 
+  'X:Real <- '_+_['_+_['$42:Real,'$43:Real],'$44:Real] ; 
+  'Y:Real <- '$44:Real,
+  '$40:MsgConf <- '%5:MsgConf ; 
+  '$41:Real <- '%4:Real ; 
+  '$42:Real <- '%1:Real ; 
+  '$43:Real <- '%2:Real ; 
+  '$44:Real <- '%3:Real ; 
+  'B':Bool <- 'false.Bool ; 
+  'M':MsgConf <- '%5:MsgConf ; 
+  'X':Real <- '_-_['_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%2:Real],
+    '%4:Real] ; 
+  'Y':Real <- '_-_['_-_['_+_['%3:Real,'%2:Real],'%2:Real],'%4:Real],'_and_[
+    '_and_['true.Boolean,'_<=_['$43:Real,'_+_['_+_['$42:Real,'$43:Real],
+    '$44:Real]]],'_<=_['$41:Real,'_-_['_+_['_+_['$42:Real,'$43:Real],
+    '$44:Real],'$43:Real]]]} ; {(49).NzNat,'_#_['<`bal:_pend:_overdraft:_>[
+    '_-_['_+_['_+_['$45:Real,'$46:Real],'$47:Real],'$46:Real],'_-_['_+_[
+    '$47:Real,'$46:Real],'$46:Real],'true.Bool],'$43:MsgConf],
+  'B:Bool <- 'false.Bool ; 
+  'M:MsgConf <- '_`,_['$43:MsgConf,'withdraw['$44:Real]] ; 
+  'X:Real <- '_+_['_+_['$45:Real,'$46:Real],'$47:Real] ; 
+  'Y:Real <- '$47:Real,
+  '$43:MsgConf <- '%4:MsgConf ; 
+  '$45:Real <- '%1:Real ; 
+  '$46:Real <- '%2:Real ; 
+  '$47:Real <- '%3:Real ; 
+  'B':Bool <- 'true.Bool ; 
+  'M':MsgConf <- '%4:MsgConf ; 
+  'X':Real <- '_-_['_+_['_+_['%1:Real,'%2:Real],'%3:Real],'%2:Real] ; 
+  'Y':Real <- '_-_['_+_['%3:Real,'%2:Real],'%2:Real],'_and_['_and_[
+    'true.Boolean,'_<=_['$46:Real,'_+_['_+_['$45:Real,'$46:Real],'$47:Real]]],
+    '_>_['$44:Real,'_-_['_+_['_+_['$45:Real,'$46:Real],'$47:Real],'$46:Real]]]}
+Bye.

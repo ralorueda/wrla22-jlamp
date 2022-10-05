@@ -1,5 +1,3 @@
-load smt.maude
-
 mod BRANDS-CHAUM is
   protecting META-LEVEL .
   protecting REAL-INTEGER .

@@ -6,38 +6,44 @@ fmod CONVERT-VARIABLES is
     
     subsorts Boolean < GroundTerm .
 
+    sorts NeTermSet TermSet .
+    subsort Term < NeTermSet < TermSet .
+    
+    op mt : -> TermSet [ctor] .
+    op _;;_ : TermSet TermSet -> TermSet [assoc comm id: mt] .
+    op _;;_ : NeTermSet TermSet -> NeTermSet [assoc comm id: mt] .
+    eq T:Term ;; T:Term = T:Term .
+    
     var F : Qid .   var V : Variable .   var GT : GroundTerm .   var GNTL : NeGroundTermList .   var NTL : NeTermList .
     var T : Term .   var N : Nat .   vars TL TL' TL'' : TermList .   vars SB SB' : Substitution .   var VarType : Type .
+    var TS : TermSet .
+    var NTS : NeTermSet .
+    
+    op rename : TermSet Nat -> Substitution .
+    eq rename(mt, N) = none .
+    eq rename(V ;; TS, N) = V <- qid("$" + string(N,10) + ":" + string(getType(V))) ; rename(TS, N + 1) .
 
-    op rename : TermList Nat -> Substitution .
-    eq rename(empty,N) = none .
-    eq rename((TL,V,TL',V,TL''),N) = rename((TL,V,TL',TL''),N) .
-    eq rename((V,TL),N) = V <- qid("$" + string(N,10) + ":" + string(getType(V))) ; rename(TL,N + 1) [owise] .
-
-    op getVars : Term -> TermList .
-    eq getVars(GT) = empty .
+    op getVars : TermList -> TermSet .
+    eq getVars(empty) = mt .
+    eq getVars(GT) = mt .
     eq getVars(V) = V .
-    eq getVars(F[NTL]) = getVars(NTL) [owise] .
+    eq getVars(F[NTL]) = getVars(NTL) .
+    eq getVars((T,NTL)) = getVars(T) ;; getVars(NTL) .
 
-    op getVars : TermList -> TermList .
-    eq getVars(empty) = empty .
-    eq getVars((T,GNTL)) = getVars(T) .
-    eq getVars((T,NTL)) = (getVars(T),getVars(NTL)) [owise] .
-
-    op getRangeVars : Substitution -> TermList .
-    eq getRangeVars((none).Substitution) = empty .
-    eq getRangeVars(((V <- T) ; SB)) = (getVars(T),getRangeVars(SB)) .
-
-    op getVarsNumber : Term -> Nat .
-    eq getVarsNumber(GT) = 0 .
-    eq getVarsNumber(V) = 1 .
-    eq getVarsNumber(F[NTL]) = getVarsNumber(NTL) [owise] .
+    op getRangeVars : Substitution -> TermSet .
+    eq getRangeVars((none).Substitution) = mt .
+    eq getRangeVars(V <- T ; SB) = getVars(T) ;; getRangeVars(SB) .
 
     op getVarsNumber : TermList -> Nat .
+    op getVarsNumber : TermSet -> Nat .
     eq getVarsNumber(empty) = 0 .
-    eq getVarsNumber(('$N:VarType, TL)) = 1 + getVarsNumber(TL) .
-    eq getVarsNumber((V,TL)) = getVarsNumber(TL) [owise] .
-
+    eq getVarsNumber(mt) = 0 .
+    eq getVarsNumber(GT) = 0 .
+    eq getVarsNumber(V) = if (substr(string(V), 0, 1) == "$") then 1 else 0 fi .
+    eq getVarsNumber(F[NTL]) = getVarsNumber(NTL) .
+    eq getVarsNumber(T ;; NTS) = getVarsNumber(T) + getVarsNumber(NTS) .
+    eq getVarsNumber((T, NTL)) = getVarsNumber(T) + getVarsNumber(NTL) .
+    
     op applySub : TermList Substitution -> TermList .
     eq applySub(V,(V <- T) ; SB) = T .
     eq applySub(F[TL], SB) = F[applySub(TL, SB)] .
@@ -125,7 +131,7 @@ fmod NARROWING is
     op narrowing : Module Term SearchArrow Term AlgorithmOptionSet VariantOptionSet TermList Term Qid Bound Bound -> SolutionList .
     op [_,_,_,_,_,_,_,_,_,_,_] : Module Term SearchArrow Term AlgorithmOptionSet VariantOptionSet TermList Term Qid Bound Bound -> UserArguments .
     op noSolution : -> SolutionList .
-    ops canonical standard smt noCheck none : -> AlgorithmOption .
+    ops canonical standard smt noCheck finalCheck none : -> AlgorithmOption .
     ops =>1 =>+ =>* : -> SearchArrow .
     op __ : AlgorithmOptionSet AlgorithmOptionSet -> AlgorithmOptionSet [comm assoc id: none] .
 
@@ -228,16 +234,20 @@ fmod NARROWING is
                             ---= getInitTermSols([Mod, InitTerm, =>*, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
                                             ---  [empty || empty || (NodeCounter, VarCounter, SolCounter)], SolList1) .
 
+    eq getInitTermSols([Mod, InitTerm, =>*, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
+                       [empty || empty || (NodeCounter, VarCounter, SolCounter)], SolList1) 
+                                = finalSMTCheck(Mod, SolList1) .
+
     eq getInitTermSols([Mod, InitTerm, =>*, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
                        [empty || empty || (NodeCounter, VarCounter, SolCounter)], SolList1) 
-                                = SolList1 [owise] .
+                                = SolList1 [owise] . 
 
     --- Get solutions from unifiers when MaxSol = unbounded
     eq getInitTermSols([Mod, InitTerm, =>*, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, unbounded],
                        [empty || empty || (NodeCounter, VarCounter, SolCounter)], SolList1 ; {Subs1, Qid2} ; SolList2) 
                                 = getInitTermSols([Mod, InitTerm, =>*, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, unbounded],
                                                   [empty || empty || (NodeCounter, VarCounter, SolCounter + 1)], 
-                                                  SolList1 ; {SolCounter, InitTerm, none, Subs1, true} ; SolList2) .
+                                                  SolList1 ; {SolCounter, InitTerm, none, Subs1, true} ; SolList2) [owise] .
 
     --- Get solutions from unifiers when MaxSol is a nat > 0
     eq getInitTermSols([Mod, InitTerm, =>*, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, s(MaxSol)],
@@ -275,9 +285,13 @@ fmod NARROWING is
     vars Constraint1 Constraint2 : Term .   vars EvalPair1 EvalPair2 : EvaluationPair .
 
     --- Stop if MaxDepth = 0 
+    eq generateNext([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, 0, MaxSol],
+                    [NodeList1 || NodeList2 || (NodeCounter, VarCounter, SolCounter)], SolList1) 
+                        = finalSMTCheck(Mod, SolList1) .
+
     eq generateNext([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, 0, MaxSol],
                     [NodeList1 || NodeList2 || (NodeCounter, VarCounter, SolCounter)], SolList1) 
-                        = SolList1 .
+                        = SolList1 [owise] .
 
     --- Generate the first node (MaxDepth > 1)
     eq generateNext([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, NzMaxDepth, MaxSol],
@@ -586,6 +600,12 @@ fmod NARROWING is
     var NarrAppRes : NarrowingApplyResult .
 
     --- End the algorithm if the new node is deeper than MaxDepth
+    eq renameVars([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
+                  [NodeList1 || 
+                  {NodeId, NarrAppRes, NodeBranch1, ParentId, s(MaxDepth), LocalIrredTList1, EvalPair1} ; NodeList2
+                  || (NodeCounter, VarCounter, SolCounter)], SolList1)
+                        = finalSMTCheck(Mod, SolList1) .
+
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                   [NodeList1 || 
                   {NodeId, NarrAppRes, NodeBranch1, ParentId, s(MaxDepth), LocalIrredTList1, EvalPair1} ; NodeList2
@@ -593,9 +613,13 @@ fmod NARROWING is
                         = SolList1 .
 
     --- End the algorithm if the NodeList to proccess is empty
+    eq renameVars([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
+                  [NodeList1 || empty || (NodeCounter, VarCounter, SolCounter)], SolList1)
+                        = finalSMTCheck(Mod, SolList1) .
+                    
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                   [NodeList1 || empty || (NodeCounter, VarCounter, SolCounter)], SolList1)
-                        = SolList1 .
+                        = SolList1 [owise] .
 
     --- If the result of metaNarrowingApply was failure, remove the node
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
@@ -612,14 +636,14 @@ fmod NARROWING is
                   || (NodeCounter, VarCounter, SolCounter)], SolList1)
                         = unifyTerms([Mod, InitTerm, SArrow, TargetTerm, standard, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                                      [NodeList1 || 
-                                     {NodeId, {applySub(Term1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     {NodeId, {applySub(Term1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      Type1, Context1, RlLabel1,
-                                     applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
-                                     applySub(Subs2,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
+                                     applySub(Subs2,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      '$}, 
                                      NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
-                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter))) -> true} ; NodeList2
-                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2))), SolCounter)], SolList1) [owise] .
+                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter))) -> true} ; NodeList2
+                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2))), SolCounter)], SolList1) [owise] .
 
     --- Rename variables of the term substitutions and constraints associated to the new node (canonical narrowing) 
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, canonical, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
@@ -628,14 +652,14 @@ fmod NARROWING is
                   || (NodeCounter, VarCounter, SolCounter)], SolList1)
                         = unifyTerms([Mod, InitTerm, SArrow, TargetTerm, canonical, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                                      [NodeList1 || 
-                                     {NodeId, {applySub(Term1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     {NodeId, {applySub(Term1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      Type1, Context1, RlLabel1,
-                                     applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
-                                     applySub(Subs2,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
+                                     applySub(Subs2,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      '$}, 
                                      NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
-                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter))) -> true} ; NodeList2
-                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2))), SolCounter)], SolList1) [owise] .
+                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter))) -> true} ; NodeList2
+                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2))), SolCounter)], SolList1) [owise] .
 
     --- Rename variables of the term substitutions and constraints associated to the new node (using smt, crl applied) 
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, (smt AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
@@ -644,14 +668,14 @@ fmod NARROWING is
                   || (NodeCounter, VarCounter, SolCounter)], SolList1)
                         = evaluateSMT([Mod, InitTerm, SArrow, TargetTerm, (smt AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                                       [NodeList1 || 
-                                      {NodeId, {applySub(('_>>_[Constraint1,Term1]),rename((getVars(('_>>_[Constraint1,Term1])),getVars(Constraint2),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                      {NodeId, {applySub(('_>>_[Constraint1,Term1]),rename((getVars(('_>>_[Constraint1,Term1])) ;; getVars(Constraint2) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                       Type1, Context1, RlLabel1,
-                                      applySub(Subs1,rename((getVars(('_>>_[Constraint1,Term1])),getVars(Constraint2),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
-                                      applySub(Subs2,rename((getVars(('_>>_[Constraint1,Term1])),getVars(Constraint2),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                      applySub(Subs1,rename((getVars(('_>>_[Constraint1,Term1])) ;; getVars(Constraint2) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
+                                      applySub(Subs2,rename((getVars(('_>>_[Constraint1,Term1])) ;; getVars(Constraint2) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                       '$}, 
                                       NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
-                                      applySub(Constraint2,applySub(Subs1,rename((getVars(('_>>_[Constraint1,Term1])),getVars(Constraint2),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter))) -> true} ; NodeList2
-                                      || (NodeCounter, VarCounter + getVarsNumber((getVars(('_>>_[Constraint1,Term1])),getVars(Constraint2),getRangeVars(Subs1),getRangeVars(Subs2))), SolCounter)], SolList1) [owise] .
+                                      applySub(Constraint2,applySub(Subs1,rename((getVars(('_>>_[Constraint1,Term1])) ;; getVars(Constraint2) ;; getRangeVars(Subs1 ; Subs2)),VarCounter))) -> true} ; NodeList2
+                                      || (NodeCounter, VarCounter + getVarsNumber((getVars(('_>>_[Constraint1,Term1])) ;; getVars(Constraint2) ;; getRangeVars(Subs1 ; Subs2))), SolCounter)], SolList1) [owise] .
 
     --- Rename variables of the term substitutions and constraints associated to the new node (using smt, normal rl applied) 
     eq renameVars([Mod, InitTerm, SArrow, TargetTerm, (smt AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
@@ -660,14 +684,14 @@ fmod NARROWING is
                   || (NodeCounter, VarCounter, SolCounter)], SolList1)
                         = unifyTerms([Mod, InitTerm, SArrow, TargetTerm, (smt AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                                      [NodeList1 || 
-                                     {NodeId, {applySub(Term1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     {NodeId, {applySub(Term1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      Type1, Context1, RlLabel1,
-                                     applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
-                                     applySub(Subs2,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter)), 
+                                     applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
+                                     applySub(Subs2,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter)), 
                                      '$}, 
                                      NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
-                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2)),VarCounter))) -> true} ; NodeList2
-                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1),getRangeVars(Subs1),getRangeVars(Subs2))), SolCounter)], SolList1) [owise] .
+                                     applySub(Constraint1,applySub(Subs1,rename((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2)),VarCounter))) -> true} ; NodeList2
+                                     || (NodeCounter, VarCounter + getVarsNumber((getVars(Term1) ;; getRangeVars(Subs1 ; Subs2))), SolCounter)], SolList1) [owise] .
 
 
     ----------------------------------------------------------------------------------------------------------
@@ -682,6 +706,17 @@ fmod NARROWING is
                    {NodeId, {('_>>_[Constraint1,Term1]), Type1, Context1, RlLabel1, Subs1, Subs2, Qid2}, NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1, Constraint2 -> true} ; NodeList2 
                    || (NodeCounter, VarCounter, SolCounter)], SolList1)
                             = checkSat([Mod, InitTerm, SArrow, TargetTerm, (smt noCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
+                                       [NodeList1 || 
+                                       {NodeId, {Term1, Type1, Context1, RlLabel1, Subs1, Subs2, Qid2}, NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
+                                       ('_and_[Constraint2,Constraint1]) -> true} ; NodeList2 
+                                       || (NodeCounter, VarCounter, SolCounter)], SolList1) .
+
+    --- If finalCheck flag is activated, ignore this step
+    eq evaluateSMT([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
+                   [NodeList1 || 
+                   {NodeId, {('_>>_[Constraint1,Term1]), Type1, Context1, RlLabel1, Subs1, Subs2, Qid2}, NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1, Constraint2 -> true} ; NodeList2 
+                   || (NodeCounter, VarCounter, SolCounter)], SolList1)
+                            = checkSat([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, MaxSol],
                                        [NodeList1 || 
                                        {NodeId, {Term1, Type1, Context1, RlLabel1, Subs1, Subs2, Qid2}, NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1,
                                        ('_and_[Constraint2,Constraint1]) -> true} ; NodeList2 
@@ -717,6 +752,26 @@ fmod NARROWING is
                                      [NodeList1 || 
                                      {NodeId, {Term1, Type1, Context1, RlLabel1, Subs1, Subs2, Qid2}, NodeBranch1, ParentId, NodeDepth1, LocalIrredTList1, Constraint1 -> true} ; NodeList2 
                                      || (NodeCounter, VarCounter, SolCounter)], SolList1) .
+
+    --- If the finalSMTCheck flag is active, check the SMT constraints on the solutions
+    sort SolutionAux .
+    op {_,_,_,_,_,_} : Nat Term Substitution Substitution Term Bool -> SolutionAux .
+    op finalSMTCheck : Module SolutionList -> SolutionList .
+    op removeUnsat : SolutionAux -> SolutionList .
+
+    var SolAux : SolutionAux .
+
+    eq finalSMTCheck(Mod, noSolution)
+                        = noSolution .
+
+    eq finalSMTCheck(Mod, ({NodeId, Term1, Subs1, Subs2, Constraint1} ; SolList1))
+                        = (removeUnsat({NodeId, Term1, Subs1, Subs2, Constraint1, metaCheck(Mod,Constraint1)}) ; finalSMTCheck(Mod, SolList1)) .
+                        
+    eq removeUnsat({NodeId, Term1, Subs1, Subs2, Constraint1, true}) 
+                        = {NodeId, Term1, Subs1, Subs2, Constraint1} .     
+                        
+    eq removeUnsat(SolAux) = noSolution [owise] .                
+
 
 
     ----------------------------------------------------------------------------------------------------------
@@ -764,6 +819,10 @@ fmod NARROWING is
                             = getTermSolutions([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
                                                [NodeList1 || NodeList2 || (NodeCounter, VarCounter, SolCounter)], 
                                                SolList1) .
+
+    eq getTermSolutions([Mod, InitTerm, SArrow, TargetTerm, (smt finalCheck AlgorithmOptionSet), VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
+                               [NodeList1 || NodeList2 || (NodeCounter, VarCounter, SolCounter)], SolList1) 
+                                    = finalSMTCheck(Mod, SolList1) [owise] .
 
     eq getTermSolutions([Mod, InitTerm, SArrow, TargetTerm, AlgorithmOptionSet, VariantOptions, IrredTList, InitConstraint, Qid1, MaxDepth, 0],
                                [NodeList1 || NodeList2 || (NodeCounter, VarCounter, SolCounter)], SolList1) 
@@ -830,5 +889,3 @@ fmod NARROWING is
     eq reduceSub(Mod, Var <- Term1 ; Subs1) = Var <- getTerm(metaReduce(Mod, Term1)) ; reduceSub(Mod, Subs1) .
 
 endfm
-
-

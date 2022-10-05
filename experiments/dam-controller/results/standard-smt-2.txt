@@ -1,0 +1,762 @@
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.2.1 built: Feb 21 2022 18:21:17
+	     Copyright 1997-2022 SRI International
+		   Mon Oct  3 20:50:11 2022
+==========================================
+reduce in TEST-PROTOCOL : narrowing(upModule('DAM-CONTROLLER, false), upTerm({[
+    s1,close] [s2,close] [s3,close] ; Vol1:Real ; T:TimeStamp ; B:Bool}), =>*,
+    upTerm(St:State), standard smt, none, empty, 'true.Boolean, '@, 4,
+    unbounded) .
+rewrites: 14458 in 40ms cpu (36ms real) (361450 rewrites/second)
+result SolutionList: {(1).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'Vol1:Real,'T:TimeStamp,'B:Bool],(
+    none).Substitution,
+  'B:Bool <- '%3:Bool ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'%2:TimeStamp,'%3:Bool] ; 
+  'T:TimeStamp <- '%2:TimeStamp ; 
+  'Vol1:Real <- '%1:Real,(true).Boolean} ; {(2).NzNat,'`{_;_;_;_`}['__[
+    '`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$3:Real,'_+_[
+    '$2:TimeStamp,'5/1.Real],'true.Bool],
+  'B:Bool <- 'false.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$2:TimeStamp <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'true.Bool],'_and_[
+    'true.Boolean,'_===_['$3:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(3).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$1:Real,'$2:TimeStamp,'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:TimeStamp <- '%2:TimeStamp ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'%2:TimeStamp,'false.Bool],'true.Boolean} ; {(
+    4).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'$1:Real,'$2:TimeStamp,'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:TimeStamp <- '%2:TimeStamp ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'%2:TimeStamp,'false.Bool],'true.Boolean} ; {(
+    5).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'$1:Real,'$2:TimeStamp,'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:TimeStamp <- '%2:TimeStamp ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'%2:TimeStamp,'false.Bool],'true.Boolean} ; {(
+    6).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'$1:Real,'$2:TimeStamp,'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:TimeStamp <- '%2:TimeStamp ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'%2:TimeStamp,'false.Bool],'true.Boolean} ; {(
+    7).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'$1:Real,'_+_['$2:Real,'5/1.Real],'false.Bool],
+  'B:Bool <- 'false.Bool ; 
+  'T:TimeStamp <- '$2:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$1:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(8).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$1:Real,'_+_['$2:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'false.Bool ; 
+  'T:TimeStamp <- '$2:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$1:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(9).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$1:Real,'_+_['$2:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'false.Bool ; 
+  'T:TimeStamp <- '$2:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$1:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(10).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'open1.Aperture]],'$1:Real,'_+_['$2:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'false.Bool ; 
+  'T:TimeStamp <- '$2:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$1:Real <- '%1:Real ; 
+  '$2:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$1:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(11).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$3:Real,'_+_['$2:TimeStamp,'5/1.Real],
+    'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$2:TimeStamp <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'true.Bool],'_and_[
+    'true.Boolean,'_===_['$3:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(12).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$3:Real,'_+_['$2:TimeStamp,'5/1.Real],
+    'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$2:TimeStamp <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'true.Bool],'_and_[
+    'true.Boolean,'_===_['$3:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(13).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$3:Real,'_+_['$2:TimeStamp,
+    '5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$2:TimeStamp <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'true.Bool],'_and_[
+    'true.Boolean,'_===_['$3:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(14).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$3:Real,'_+_['$2:TimeStamp,
+    '5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$2:TimeStamp ; 
+  'Vol1:Real <- '$1:Real,
+  '$2:TimeStamp <- '%2:Real ; 
+  '$3:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'true.Bool],'_and_[
+    'true.Boolean,'_===_['$3:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(15).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(16).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(17).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(18).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,'0/1.Real]]],
+    '5/1.Real]]]]} ; {(19).NzNat,'`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,
+    'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`][
+    's3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,'5/1.Real],
+    'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(20).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(21).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(22).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(23).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'open2.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open2.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(24).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(25).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(26).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(27).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(28).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open2.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open2.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['200/1.Real,'_+_['0/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(29).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(30).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(31).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(32).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(33).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'open2.Aperture]],'$5:Real,'_+_['$6:Real,
+    '5/1.Real],'false.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$6:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$5:Real <- '%1:Real ; 
+  '$6:Real <- '%2:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open2.Aperture]],'%1:Real,'_+_['%2:Real,'5/1.Real],'false.Bool],'_and_[
+    'true.Boolean,'_===_['$5:Real,'_-_['_+_['$1:Real,'_*_['2000/1.Real,
+    '5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_['200/1.Real,
+    '0/1.Real]]],'5/1.Real]]]]} ; {(34).NzNat,'`{_;_;_;_`}['__['`[_`,_`][
+    's1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$9:Real,'_+_['_+_['$8:Real,
+    '5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$8:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$8:Real <- '%2:Real ; 
+  '$9:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$7:Real,'_-_['_+_['$1:Real,
+    '_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_[
+    '0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$9:Real,'_-_['_+_['$7:Real,
+    '_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_[
+    '0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(35).NzNat,'`{_;_;_;_`}['__[
+    '`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$11:Real,'_+_[
+    '_+_['$10:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$10:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$10:Real <- '%2:Real ; 
+  '$11:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$9:Real,'_-_['_+_['$1:Real,
+    '_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,'_+_[
+    '0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$11:Real,'_-_['_+_['$9:Real,
+    '_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_['0/1.Real,'_+_[
+    '0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(36).NzNat,'`{_;_;_;_`}['__[
+    '`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$13:Real,'_+_[
+    '_+_['$12:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$12:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$12:Real <- '%2:Real ; 
+  '$13:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$11:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$13:Real,'_-_['_+_[
+    '$11:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(37).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],
+    '$15:Real,'_+_['_+_['$14:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$14:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$14:Real <- '%2:Real ; 
+  '$15:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$13:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$15:Real,'_-_['_+_[
+    '$13:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(38).NzNat,'`{_;_;_;_`}[
+    '__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],'$17:Real,'_+_[
+    '_+_['$16:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$16:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$16:Real <- '%2:Real ; 
+  '$17:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$15:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$17:Real,'_-_[
+    '_+_['$15:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(39).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$19:Real,'_+_['_+_['$18:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$18:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$18:Real <- '%2:Real ; 
+  '$19:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$17:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$19:Real,'_-_[
+    '_+_['$17:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(40).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],
+    '$21:Real,'_+_['_+_['$20:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$20:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$20:Real <- '%2:Real ; 
+  '$21:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$19:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$21:Real,'_-_[
+    '_+_['$19:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(41).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$23:Real,'_+_['_+_['$22:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$22:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$22:Real <- '%2:Real ; 
+  '$23:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$21:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$23:Real,'_-_[
+    '_+_['$21:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(42).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open2.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$25:Real,'_+_['_+_['$24:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$24:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$24:Real <- '%2:Real ; 
+  '$25:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open2.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$23:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$25:Real,'_-_[
+    '_+_['$23:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['400/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(43).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$27:Real,'_+_['_+_['$26:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$26:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$26:Real <- '%2:Real ; 
+  '$27:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$25:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$27:Real,
+    '_-_['_+_['$25:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(44).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$29:Real,'_+_['_+_['$28:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$28:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$28:Real <- '%2:Real ; 
+  '$29:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$27:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$29:Real,
+    '_-_['_+_['$27:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,
+    '_+_['200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(45).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],
+    '$31:Real,'_+_['_+_['$30:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$30:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$30:Real <- '%2:Real ; 
+  '$31:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$29:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$31:Real,
+    '_-_['_+_['$29:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(46).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$33:Real,'_+_['_+_['$32:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$32:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$32:Real <- '%2:Real ; 
+  '$33:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$31:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$33:Real,
+    '_-_['_+_['$31:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '0/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(47).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open2.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$35:Real,'_+_['_+_['$34:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$34:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$34:Real <- '%2:Real ; 
+  '$35:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open2.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$33:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$35:Real,
+    '_-_['_+_['$33:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '400/1.Real,'_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(48).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],
+    '$37:Real,'_+_['_+_['$36:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$36:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$36:Real <- '%2:Real ; 
+  '$37:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$35:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$37:Real,'_-_['_+_[
+    '$35:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(49).NzNat,'`{_;_;_;_`}[
+    '__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],'$39:Real,'_+_[
+    '_+_['$38:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$38:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$38:Real <- '%2:Real ; 
+  '$39:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'open1.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$37:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$39:Real,'_-_['_+_[
+    '$37:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['200/1.Real,'_+_[
+    '0/1.Real,'_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(50).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,'open1.Aperture]],
+    '$41:Real,'_+_['_+_['$40:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$40:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$40:Real <- '%2:Real ; 
+  '$41:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'open1.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open1.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$39:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$41:Real,'_-_['_+_[
+    '$39:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_[
+    '200/1.Real,'_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(51).NzNat,
+    '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`][
+    's2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,'close.Aperture]],
+    '$43:Real,'_+_['_+_['$42:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$42:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$42:Real <- '%2:Real ; 
+  '$43:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'close.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$41:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$43:Real,'_-_['_+_[
+    '$41:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['0/1.Real,'0/1.Real]]],'5/1.Real]]]]} ; {(52).NzNat,'`{_;_;_;_`}['__[
+    '`[_`,_`]['s1.SpillwayId,'close.Aperture],'`[_`,_`]['s2.SpillwayId,
+    'close.Aperture],'`[_`,_`]['s3.SpillwayId,'open2.Aperture]],'$45:Real,'_+_[
+    '_+_['$44:Real,'5/1.Real],'5/1.Real],'true.Bool],
+  'B:Bool <- 'true.Bool ; 
+  'T:TimeStamp <- '$44:Real ; 
+  'Vol1:Real <- '$1:Real,
+  '$44:Real <- '%2:Real ; 
+  '$45:Real <- '%1:Real ; 
+  'St:State <- '`{_;_;_;_`}['__['`[_`,_`]['s1.SpillwayId,'close.Aperture],
+    '`[_`,_`]['s2.SpillwayId,'close.Aperture],'`[_`,_`]['s3.SpillwayId,
+    'open2.Aperture]],'%1:Real,'_+_['_+_['%2:Real,'5/1.Real],'5/1.Real],
+    'true.Bool],'_and_['_and_['true.Boolean,'_===_['$43:Real,'_-_['_+_[
+    '$1:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['200/1.Real,'0/1.Real]]],'5/1.Real]]]],'_===_['$45:Real,'_-_['_+_[
+    '$43:Real,'_*_['2000/1.Real,'5/1.Real]],'_*_['_+_['0/1.Real,'_+_['0/1.Real,
+    '_+_['400/1.Real,'0/1.Real]]],'5/1.Real]]]]}
+Bye.
