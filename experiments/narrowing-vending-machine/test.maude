@@ -1,0 +1,3 @@
+reduce in NARROWING :
+        narrowing none [1,2] in upModule('NARROWING-VENDING-MACHINE, false) :
+            '<_>['M:Money] =>* 'St:State .

@@ -1,0 +1,187 @@
+load smt.maude
+
+fmod CONVERT-VARIABLES is
+    protecting META-LEVEL .
+    protecting CONVERSION .
+    
+    subsorts Boolean < GroundTerm .
+
+    sorts NeTermSet TermSet .
+    subsort Term < NeTermSet < TermSet .
+    
+    op mt : -> TermSet [ctor] .
+    op _;;_ : TermSet TermSet -> TermSet [assoc comm id: mt] .
+    op _;;_ : NeTermSet TermSet -> NeTermSet [assoc comm id: mt] .
+    eq T:Term ;; T:Term = T:Term .
+    
+    var F : Qid .   var V : Variable .   var GT : GroundTerm .   var GNTL : NeGroundTermList .   var NTL : NeTermList .
+    var T : Term .   var N : Nat .   vars TL TL' TL'' : TermList .   vars SB SB' : Substitution .   var VarType : Type .
+    var TS : TermSet .
+    var NTS : NeTermSet .
+    
+    op rename : TermSet Nat -> Substitution .
+    eq rename(mt, N) = none .
+    eq rename(V ;; TS, N) = V <- qid("$" + string(N,10) + ":" + string(getType(V))) ; rename(TS, N + 1) .
+
+    op getVars : TermList -> TermSet .
+    eq getVars(empty) = mt .
+    eq getVars(GT) = mt .
+    eq getVars(V) = V .
+    eq getVars(F[NTL]) = getVars(NTL) .
+    eq getVars((T,NTL)) = getVars(T) ;; getVars(NTL) .
+
+    op getRangeVars : Substitution -> TermSet .
+    eq getRangeVars((none).Substitution) = mt .
+    eq getRangeVars(V <- T ; SB) = getVars(T) ;; getRangeVars(SB) .
+
+    op getVarsNumber : TermList -> Nat .
+    op getVarsNumber : TermSet -> Nat .
+    eq getVarsNumber(empty) = 0 .
+    eq getVarsNumber(mt) = 0 .
+    eq getVarsNumber(GT) = 0 .
+    eq getVarsNumber(V) = if (substr(string(V), 0, 1) == "$") then 1 else 0 fi .
+    eq getVarsNumber(F[NTL]) = getVarsNumber(NTL) .
+    eq getVarsNumber(T ;; NTS) = getVarsNumber(T) + getVarsNumber(NTS) .
+    eq getVarsNumber((T, NTL)) = getVarsNumber(T) + getVarsNumber(NTL) .
+    
+    op applySub : TermList Substitution -> TermList .
+    eq applySub(V,(V <- T) ; SB) = T .
+    eq applySub(F[TL], SB) = F[applySub(TL, SB)] .
+    eq applySub((T,NTL),SB) = (applySub(T,SB), applySub(NTL,SB)) .
+    eq applySub(T,SB) = T [owise] .
+
+    op applySub : Substitution Substitution -> Substitution .
+    eq applySub((none).Substitution,SB) = none .
+    eq applySub(V <- T ; SB,SB') =  V <- applySub(T,SB') ; applySub(SB,SB') .
+endfm
+
+
+
+fmod STANDARD-NARROWING is
+    protecting CONVERT-VARIABLES .
+
+    --- Variables declaration
+    var VOPTIONS : VariantOptionSet .   vars N M : NzBound .   var MODNAME : Qid .   var MOD : Module .   var ITERM TTERM : Term .
+    var SEARCH : SearchType .   vars AVOIDQID QID1 QID2 : Qid .   vars TERM1 TERM2 : Term .   var IRREDUCIBLETERMS : TermList .
+    var UNIFCOUNTER : NzNat .   var SOLUTIONS1 SOLUTIONS2 : SolutionList .   var SUBS1 : Substitution .   var UPair : UnificationPair .
+    var NODEID1 : Nat .
+
+    sorts NarrowingSolutions SearchType NzBound .
+
+    subsort NzBound < Bound .
+    subsort Nat < NzBound .
+    
+    op narrowing _ [_,_] in _: _ _ _ (_) : VariantOptionSet Bound Bound Header Term SearchType Term Qid -> NarrowingSolutions .
+    op No solutions found : -> NarrowingSolutions .
+    ops =>1 =>+ =>* =>! : -> SearchType .
+
+    op unbounded : -> NzBound [ctor] .
+
+    --- Solutions limit = 0 -> No solutions found
+    eq narrowing VOPTIONS [0,M] in MODNAME : ITERM SEARCH TTERM (AVOIDQID)
+            = No solutions found .
+
+    --- Begin with the algorithm (Depth limit = unbounded)
+    eq narrowing VOPTIONS [N,M] in MODNAME : ITERM =>1 TTERM (AVOIDQID)
+            =  getFirstLevel(
+                    MODULE: [upModule(MODNAME,false)], PROBLEM: [ITERM =>1 TTERM], VARIANT OPTIONS: [VOPTIONS],
+                    BOUNDS: [Solutions:N, Depth:M], COUNTERS: [Nodes:0, Variables:0, Solutions:0], AVOID: AVOIDQID,  
+                    NODES TO PROCCESS: [empty], PROCCESSED NODES: [empty]) .
+
+    eq narrowing VOPTIONS [N,M] in MODNAME : ITERM =>+ TTERM (AVOIDQID)
+            =  getFirstLevel(
+                    MODULE: [upModule(MODNAME,false)], PROBLEM: [ITERM =>1 TTERM], VARIANT OPTIONS: [VOPTIONS],
+                    BOUNDS: [Solutions:N, Depth:M], COUNTERS: [Nodes:0, Variables:0, Solutions:0], AVOID: AVOIDQID,  
+                    NODES TO PROCCESS: [empty], PROCCESSED NODES: [empty]) .
+    
+    eq narrowing VOPTIONS [N,M] in MODNAME : ITERM SEARCH TTERM (AVOIDQID)
+            =  getInitialTermSolutions(
+                    MODULE: [upModule(MODNAME,false)], PROBLEM: [ITERM SEARCH TTERM], VARIANT OPTIONS: [VOPTIONS],
+                    BOUNDS: [Solutions:N, Depth:M], COUNTERS: [Nodes:0, Variables:0, Solutions:0], AVOID: AVOIDQID, 
+                    NODES TO PROCCESS: [empty], PROCCESSED NODES: [empty]) [owise] .
+
+    sorts NarrowingProblem Bounds Counters .
+    sorts Node NodeSet Solution SolutionList .
+    subsorts Node < NodeSet .
+    subsorts UnificationPair < Solution < SolutionList .
+ 
+    op _ _ _ : Term SearchType Term -> NarrowingProblem .
+    op Solutions:_,Depth_ : Bound Bound -> Bounds .
+    op Nodes:_,Variables:_,Solutions:_ : Nat Nat Nat -> Counters .
+
+    op empty : -> NodeSet .
+    op _;_ : NodeSet NodeSet -> NodeList [assoc id: empty] . 
+
+    op none : -> Solution .
+    op {_,_,_,_,_} : Nat Term Substitution Substitution Term -> Solution .   
+    op _;_ : SolutionList SolutionList -> SolutionList [assoc id: none] .                            
+
+
+    op {Id:_, Narrowing step result:[_], Depth:_, Branch:_, Parent Id:_, Substitutions:_, Solutions:[_]} : 
+       Nat NarrowingApplyResult? Nat Nat Nat SolutionList -> Node .
+
+    op Initial term : -> NarrowingApplyResult .
+
+    op getInitialTermSolutions(MODULE:[_], PROBLEM:[_], VARIANT OPTIONS:[_], BOUNDS:[_], COUNTERS:[_], 
+                               AVOID:_, NODES TO PROCCESS:[_], PROCCESSED NODES:[_]) : 
+       Module NarrowingProblem VariantOptionSet Bounds Counters NodeSet NodeSet -> NarrowingSolutions . 
+
+    --- Get solutions from unifiers when MaxSol = unbounded
+    eq getInitialTermSolutions(
+            MODULE: [MOD], PROBLEM: [ITERM SEARCH TTERM], VARIANT OPTIONS: [VOPTIONS],
+            BOUNDS: [Solutions:unbounded, Depth:M], COUNTERS: [Nodes:0, Variables:0, Solutions:0], AVOID: AVOIDQID, 
+            NODES TO PROCCESS: [empty], PROCCESSED NODES: [empty])
+                = checkSolutions(
+                        MODULE: [MOD], PROBLEM: [ITERM SEARCH TTERM], VARIANT OPTIONS: [VOPTIONS],
+                        BOUNDS: [Solutions:unbounded, Depth:M], COUNTERS: [Nodes:1, Variables:0, Solutions:0], AVOID: AVOIDQID,  
+                        NODES TO PROCCESS: [empty], 
+                        PROCCESSED NODES: [
+                            {Id:0, Narrowing step result:[Initial term], Depth:0, Branch:0, Parent Id:0, Substitutions:none, 
+                             Solutions:[iterativeMetaVariantUnify(MOD, ITERM =? TTERM, VOPTIONS, empty, AVOIDQID)]}
+                        ]) .
+    
+    op iterativeMetaVariantUnify :  Module UnificationProblem VariantOptionSet TermList Qid Nat -> SolutionList . 
+
+    --- Get unifiers for two terms iteratively
+    eq iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID1, 0) 
+            = metaVariantUnify(MOD, TERM1 =? TERM2, IRREDUCIBLETERMS, QID1, VOPTIONS, 0) ; 
+              iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID1, 1) .
+
+    eq {SUBS1, QID1} ; iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID2, UNIFCOUNTER)
+            = {SUBS1, QID1} ; metaVariantUnify(MOD, TERM1 =? TERM2, IRREDUCIBLETERMS, QID2, VOPTIONS, UNIFCOUNTER) ; 
+              iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID2, UNIFCOUNTER + 1) .
+
+    --- Stop looking for unifiers when noUnifier / noUnifierIncomplete is returned
+    eq SOLUTIONS1 ; noUnifier ; iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID1, UNIFCOUNTER)
+            = SOLUTIONS1 .
+
+    eq SOLUTIONS1 ; noUnifierIncomplete ; iterativeMetaVariantUnify(MOD, TERM1 =? TERM2, VOPTIONS, IRREDUCIBLETERMS, QID1, UNIFCOUNTER)
+            = SOLUTIONS1 . 
+
+    op checkSolutions(MODULE:[_], PROBLEM:[_], VARIANT OPTIONS:[_], BOUNDS:[_], COUNTERS:[_], 
+                               AVOID:_, NODES TO PROCCESS:[_], PROCCESSED NODES:[_]) : 
+       Module NarrowingProblem VariantOptionSet Bounds Counters NodeSet NodeSet -> NarrowingSolutions .  
+
+    eq checkSolutions(
+            MODULE: [MOD], PROBLEM: [ITERM SEARCH TTERM], VARIANT OPTIONS: [VOPTIONS],
+            BOUNDS: [Solutions:unbounded, Depth:M], COUNTERS: [Nodes:1, Variables:0, Solutions:0], AVOID: AVOIDQID,  
+            NODES TO PROCCESS: [empty], 
+            PROCCESSED NODES: [
+                {Id:NODEID1, Narrowing step result:[Initial term], Depth:0, Branch:0, Parent Id:0, Substitutions:none, 
+                 Solutions:[SOLUTIONS1 ; {SUBS1, QID1} ; SOLUTIONS2]}])
+                    =  checkSolutions(
+                            MODULE: [MOD], PROBLEM: [ITERM SEARCH TTERM], VARIANT OPTIONS: [VOPTIONS],
+                            BOUNDS: [Solutions:unbounded, Depth:M], COUNTERS: [Nodes:1, Variables:0, Solutions:0], AVOID: AVOIDQID,  
+                            NODES TO PROCCESS: [empty], 
+                            PROCCESSED NODES: [
+                                {Id:0, Narrowing step result:[Initial term], Depth:0, Branch:0, Parent Id:0, Substitutions:none, 
+                                Solutions:[SOLUTIONS1 ; {SUBS1, QID1} ; SOLUTIONS2]}])
+
+var NARROWINGAPPLYRESULT1 NarrowingApplyResult .
+
+endfm
+
+fmod NARROWING is
+    protecting STANDARD-NARROWING .
+    ---protecting CANONICAL-NARROWING .
+endfm

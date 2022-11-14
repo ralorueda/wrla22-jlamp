@@ -1,0 +1,7 @@
+reduce in NARROWING :
+        narrowing none [0,2] in 'NARROWING-VENDING-MACHINE :
+            '<_>['M:Money] =>* 'St:State .
+
+reduce in NARROWING :
+        narrowing none [unbounded,2] in 'NARROWING-VENDING-MACHINE :
+            '<_>['M:Money] =>1 'St:State .
