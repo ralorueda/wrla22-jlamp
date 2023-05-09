@@ -98,4 +98,4 @@ reduce in TEST-PROTOCOL :
                 nI(sign(b,(n(a,ra1) * n(b,rb1)) ; n(a,ra1))           @ b : bx:Real,by:Real,bz:Real,t3:Real -> a : t8:Real) 
               } 
               }),
-              smt canonical, none, empty, 'true.Boolean, '@, unbounded, unbounded) .
+              smt standard, none, empty, 'true.Boolean, '@, unbounded, unbounded) .

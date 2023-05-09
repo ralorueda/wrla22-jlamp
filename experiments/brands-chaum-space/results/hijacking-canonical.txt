@@ -1,9 +1,9 @@
 		     \||||||||||||||||||/
-		   --- Welcome to Maude ---
+		   --- Welcome to Maude-NRA ---
 		     /||||||||||||||||||\
-	     Maude alpha136 built: Jul 23 2021 13:33:57
-	     Copyright 1997-2021 SRI International
-		   Mon Oct  3 20:44:09 2022
+	    Maude 3.3 built: Mar 23 2023 12:08:10
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:42:21 2023
 ==========================================
 reduce in TEST-PROTOCOL : narrowing(upModule('BRANDS-CHAUM, false), upTerm({[
     nilEe,-((NA':Nonce * NB':Nonce)
@@ -91,7 +91,7 @@ reduce in TEST-PROTOCOL : narrowing(upModule('BRANDS-CHAUM, false), upTerm({[
     n(b, rb1)) ; n(a, ra1))
  @ i : ix:Real,iy:Real,iz:Real,t7:Real -> a : t8:Real)}}), canonical smt, none,
     empty, 'true.Boolean, '@, unbounded, unbounded) .
-rewrites: 1085950 in 11760ms cpu (11758ms real) (92342 rewrites/second)
+rewrites: 1085950 in 9772ms cpu (9772ms real) (111128 rewrites/second)
 result SolutionList: {(1).NzNat,'`{_`{_`}`}['_&_['`[_|_`]['nilEe.SMsgList-Ee,
     '_`,_['+['_@_['commit['n['b.Honest,'rb1.Fresh],'s['b.Honest,'rb2.Fresh]],
     '_->_['_:_`,_`,_`,_['b.Honest,'$1613:Real,'$1618:Real,'$1619:Real,

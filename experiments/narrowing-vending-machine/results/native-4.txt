@@ -1,14 +1,14 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:52:45 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:48:06 2023
 ==========================================
 reduce in NATIVE-NARROWING : nativeNarrowing(upModule(
     'NARROWING-VENDING-MACHINE, false), '<_>['M:Money], 'St:State, '*, 7,
     'none, unbounded) .
-rewrites: 32667 in 2092ms cpu (2091ms real) (15615 rewrites/second)
+rewrites: 32667 in 2232ms cpu (2230ms real) (14635 rewrites/second)
 result NarrowingSearchSolutionList: {1,{
   '<_>['#1:Money],'State,
     'M:Money <- '#1:Money,

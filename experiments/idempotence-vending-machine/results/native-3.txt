@@ -1,9 +1,9 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:50:30 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:44:02 2023
 ==========================================
 reduce in NATIVE-NARROWING : nativeNarrowing(upModule(
     'IDEMPOTENCE-VENDING-MACHINE, false), '<_>['M1:Money], '<_>['__['$.Coin,

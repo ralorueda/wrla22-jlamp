@@ -1,9 +1,9 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:54:07 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:49:03 2023
 ==========================================
 reduce in NATIVE-NARROWING : nativeNarrowing(upModule('XOR-PROTOCOL, false),
     '`{_`{_`}`}['_&_['`[_|_`]['_`,_['nil.SMsgList,'+['pk['a.Name,'n['b.Name,
@@ -19,7 +19,7 @@ reduce in NATIVE-NARROWING : nativeNarrowing(upModule('XOR-PROTOCOL, false),
     'r2.Fresh]]],'nil.SMsgList]]],'_`,_['nI['_*_['X:Msg,'n['a.Name,
     'r2.Fresh]]],'nI['pk['a.Name,'X:Msg]],'nI['pk['b.Name,'Y:Msg]]]], '*,
     unbounded, 'none, unbounded) .
-rewrites: 27279 in 1472ms cpu (1472ms real) (18531 rewrites/second)
+rewrites: 27279 in 1360ms cpu (1356ms real) (20058 rewrites/second)
 result NarrowingSearchSolutionList: {1,{
   '`{_`{_`}`}['_&_['`[_|_`]['nil.SMsgList,'_`,_['+['pk['a.Name,'n['b.Name,
     'r1.Fresh]]],'-['pk['b.Name,'n['a.Name,'r2.Fresh]]],'+['_*_['n['a.Name,

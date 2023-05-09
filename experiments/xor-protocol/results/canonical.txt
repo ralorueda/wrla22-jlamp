@@ -1,9 +1,9 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:54:11 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:49:07 2023
 ==========================================
 reduce in NARROWING : narrowing(upModule('XOR-PROTOCOL, false), '`{_`{_`}`}[
     '_&_['`[_|_`]['_`,_['nil.SMsgList,'+['pk['a.Name,'n['b.Name,'r1.Fresh]]],
@@ -19,7 +19,7 @@ reduce in NARROWING : narrowing(upModule('XOR-PROTOCOL, false), '`{_`{_`}`}[
     'nil.SMsgList]]],'_`,_['nI['_*_['X:Msg,'n['a.Name,'r2.Fresh]]],'nI['pk[
     'a.Name,'X:Msg]],'nI['pk['b.Name,'Y:Msg]]]], canonical, none, empty, '@,
     unbounded, unbounded) .
-rewrites: 21343 in 2212ms cpu (2210ms real) (9648 rewrites/second)
+rewrites: 21343 in 1940ms cpu (1942ms real) (11001 rewrites/second)
 result Solution: {1,'`{_`{_`}`}['_&_['`[_|_`]['nil.SMsgList,'_`,_['+['pk[
     'a.Name,'n['b.Name,'r1.Fresh]]],'-['pk['b.Name,'n['a.Name,'r2.Fresh]]],'+[
     '_*_['n['a.Name,'r2.Fresh],'n['b.Name,'r1.Fresh]]],'nil.SMsgList]],

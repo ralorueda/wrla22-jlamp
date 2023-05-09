@@ -1,14 +1,14 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:46:41 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:39:17 2023
 ==========================================
 reduce in NARROWING : narrowing(upModule('PROC-COUNTER, false), '<_`,_>['0.Int,
     '_+_['1.Int,'X:Int]], =>*, '<_`,_>['-_['_+_['1.Int,'1.Int,'1.Int]],'Y:Int],
     canonical, none, empty, '@, 3, unbounded) .
-rewrites: 90909 in 9344ms cpu (9344ms real) (9729 rewrites/second)
+rewrites: 90909 in 9236ms cpu (9235ms real) (9842 rewrites/second)
 result SolutionList: {1,'<_`,_>['-_['_+_['1.Int,'1.Int,'1.Int]],'_+_['1.Int,
     '1.Int,'1.Int,'1.Int,'$15:Int]],
   'X:Int <- '$15:Int,

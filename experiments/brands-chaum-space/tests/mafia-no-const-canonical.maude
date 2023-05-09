@@ -104,8 +104,5 @@ reduce in TEST-PROTOCOL :
                 nI((n(a,ra1) * n(b,rb1))                                 @ i : ix:Real,iy:Real,iz:Real,t6:Real -> a : t7:Real)       
               }
               }),
-              smt canonical, none, 
-              ((dab:Real * dab:Real) === ((((ax:Real - bx:Real) * (ax:Real - bx:Real)) 
-              + ((ay:Real - by:Real) * (ay:Real - by:Real))) + ((az:Real - bz:Real) * (az:Real - bz:Real)))),
-              'true.Boolean, '@, unbounded, unbounded) .
+              smt canonical, none, empty, 'true.Boolean, '@, unbounded, unbounded) .
               

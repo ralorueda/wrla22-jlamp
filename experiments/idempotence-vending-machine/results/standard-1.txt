@@ -1,14 +1,14 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:50:20 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:43:52 2023
 ==========================================
 reduce in NARROWING : narrowing(upModule('IDEMPOTENCE-VENDING-MACHINE, false),
     '<_>['M1:Money], =>*, '<_>['__['$.Coin,'a.Item,'c.Item,'M2:Marking]],
     standard, none, empty, '@, 3, unbounded) .
-rewrites: 159138 in 4256ms cpu (4255ms real) (37391 rewrites/second)
+rewrites: 159138 in 4744ms cpu (4743ms real) (33545 rewrites/second)
 result SolutionList: {1,'<_>['__['a.Item,'c.Item,'q.Coin,'$10:Money]],
   'M1:Money <- '__['$.Coin,'$10:Money],
   '$10:Money <- '__['$.Coin,'%1:Money] ; 

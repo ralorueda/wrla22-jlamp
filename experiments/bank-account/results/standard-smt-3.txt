@@ -1,15 +1,15 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:44:47 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:41:07 2023
 ==========================================
 reduce in TEST-PROTOCOL : narrowing(upModule('BANK-ACCOUNT, false), upTerm(<
     bal: X:Real pend: Y:Real overdraft: B:Bool > # M:MsgConf), =>*, upTerm(<
     bal: X':Real pend: Y':Real overdraft: B':Bool > # M':MsgConf), standard
     smt, none, empty, 'true.Boolean, '@, 5, unbounded) .
-rewrites: 185989 in 444ms cpu (445ms real) (418894 rewrites/second)
+rewrites: 185989 in 388ms cpu (385ms real) (479353 rewrites/second)
 result SolutionList: {(1).NzNat,'_#_['<`bal:_pend:_overdraft:_>['X:Real,
     'Y:Real,'B:Bool],'M:MsgConf],(none).Substitution,
   'B':Bool <- '%3:Bool ; 

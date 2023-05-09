@@ -66,7 +66,7 @@ fmod CONVERT-MODULE is
     var ModId : Qid .   var Imports : ImportList .   var Sorts : SortSet .   var Subsorts : SubsortDeclSet .   
     var Ops : OpDeclSet .   var Membs : MembAxSet .   var Eqs : EquationSet .   vars Rls1 Rls2 : RuleSet .   
     var StratsDecl : StratDeclSet .   var StratsDef : StratDefSet .   vars Lhs Rhs : Term .   
-    var SmtConst BooleanValue : Term .   var Attrs : AttrSet .
+    var SMTCondition BooleanValue : Term .   var Attrs : AttrSet .
     
     op transformMod : Module -> Module .
 
@@ -91,8 +91,8 @@ fmod CONVERT-MODULE is
                     Membs Eqs transformRls(Rls1) StratsDecl StratsDef endsth .
 
     op transformRls : RuleSet -> RuleSet .
-    eq transformRls(Rls1 (crl Lhs => Rhs if (SmtConst = BooleanValue) [Attrs].) Rls2)
-                = transformRls(Rls1 Rls2) (rl Lhs => '_>>_[SmtConst,Rhs] [Attrs narrowing] .) .
+    eq transformRls(Rls1 (crl Lhs => Rhs if (SMTCondition = 'true.Boolean) [Attrs].) Rls2)
+                = transformRls(Rls1 Rls2) (rl Lhs => '_>>_[SMTCondition,Rhs] [Attrs narrowing] .) .
     eq transformRls(Rls1) = Rls1 [owise] .
 endfm
 

@@ -1,14 +1,14 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:46:25 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:39:01 2023
 ==========================================
 reduce in NATIVE-NARROWING : nativeNarrowing(upModule('PROC-COUNTER, false),
     '<_`,_>['0.Int,'_+_['1.Int,'X:Int]], '<_`,_>['-_['1.Int],'Y:Int], '*, 1,
     'none, unbounded) .
-rewrites: 1420 in 320ms cpu (320ms real) (4437 rewrites/second)
+rewrites: 1420 in 304ms cpu (305ms real) (4671 rewrites/second)
 result NarrowingSearchSolutionList: {1,{
   '<_`,_>['-_['1.Int],'_+_['1.Int,'1.Int,'%1:Int]],'State,
     'X:Int <- '%1:Int,

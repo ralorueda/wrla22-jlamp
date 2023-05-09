@@ -47,10 +47,6 @@ mod BRANDS-CHAUM is
   op _#_ : NameTimeSet NameTimeSet -> NameTimeSet [assoc comm id: mt] .
   op _->_ : NameTime NameTimeSet -> TimeInfo .
 
-  --- Distance operator
-  op d : Name Name -> Real [comm] .
-  eq d(A:Name,A:Name) = 0/1 .  
-
   --- Sent message and sent message list
   sorts SMsg SMsgN SMsgR SMsgList-eE SMsgList-Ee . 
   op + : Msg -> SMsg .

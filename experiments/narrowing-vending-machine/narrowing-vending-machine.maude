@@ -1,4 +1,5 @@
 mod NARROWING-VENDING-MACHINE is
+protecting META-LEVEL .
    sorts Coin Item Marking Money State .
    subsort Coin < Money .
    op empty : -> Money .

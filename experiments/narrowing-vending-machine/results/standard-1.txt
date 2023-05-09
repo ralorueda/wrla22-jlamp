@@ -1,13 +1,13 @@
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
-	    Maude 3.2.1 built: Feb 21 2022 18:21:17
-	     Copyright 1997-2022 SRI International
-		   Mon Oct  3 20:52:29 2022
+	     Maude 3.3 built: Mar 21 2023 22:18:55
+	     Copyright 1997-2023 SRI International
+		   Fri Mar 31 12:47:50 2023
 ==========================================
 reduce in NARROWING : narrowing(upModule('NARROWING-VENDING-MACHINE, false),
     '<_>['M:Money], =>*, 'St:State, standard, none, empty, '@, 4, unbounded) .
-rewrites: 15080 in 52ms cpu (52ms real) (290000 rewrites/second)
+rewrites: 15080 in 48ms cpu (49ms real) (314166 rewrites/second)
 result SolutionList: {1,'<_>['M:Money],(none).Substitution,
   'M:Money <- '%1:Money ; 
   'St:State <- '<_>['%1:Money]} ; {2,'<_>['__['a.Item,'q.Coin,'$1:Money]],
